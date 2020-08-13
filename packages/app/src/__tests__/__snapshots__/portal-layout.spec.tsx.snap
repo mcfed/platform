@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`快照测试 1`] = `
+<Layout>
+  <GlobalHeader
+    avator="User"
+    className="portal-header"
+    logo="icon-portal-logo.png"
+    onMenuSelect={[Function]}
+  />
+  <Content
+    className="portal-content"
+  >
+    <div
+      className="app-box"
+    >
+      <a
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <section
+          className="app-item"
+        >
+          <img
+            className="app-icon"
+          />
+          <h2
+            className="app-title"
+          />
+        </section>
+      </a>
+      <section
+        className="app-item disabled"
+      >
+        <img
+          className="app-icon"
+        />
+        <h2
+          className="app-title"
+        />
+        <p
+          className="app-disable-tip"
+        >
+          PORTAL.DISABLE
+        </p>
+      </section>
+    </div>
+  </Content>
+</Layout>
+`;

@@ -1,0 +1,17 @@
+{
+  "HeadSearchBar": {
+    "searchText": "搜索",
+    "resetText": "重置",
+    "upText": "收起",
+    "downText": "展开"
+  },
+  "Panel": {
+    "okText": "确定",
+    "cancelText": "取消"
+  },
+  "ButtonGroups": {
+    "title": "弹出框",
+    "okText": "确定",
+    "cancelText": "取消"
+  }
+}

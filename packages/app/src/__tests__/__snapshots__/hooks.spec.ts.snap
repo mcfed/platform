@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`layout hooks useLogoutAction 1`] = `
+Object {
+  "current": Object {
+    "payload": Object {},
+    "type": "@@MIDDLEWARE/fetchLogouting",
+  },
+  "error": undefined,
+}
+`;

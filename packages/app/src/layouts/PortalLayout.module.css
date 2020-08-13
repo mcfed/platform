@@ -1,0 +1,67 @@
+.portal-header:global(.ant-layout-header) {
+  height: 50px;
+}
+
+.portal-content {
+  background: #fcfcfd;
+  padding-top: 70px;
+}
+
+.app-box {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 1280px;
+  margin: 0 auto;
+}
+
+.app-item {
+  width: 300px;
+  height: 360px;
+  padding-top: 100px;
+  box-sizing: border-box;
+  border: 2px solid #d0d2db;
+  border-radius: 10px;
+  background-color: #ffffff;
+  margin: 10px;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.app-item:hover {
+  border: 2px solid #1890ff;
+}
+
+.app-item.disabled:hover {
+  border: 2px solid #8c8c95;
+  cursor: not-allowed;
+}
+
+.app-icon {
+  width: 120px;
+  height: 116px;
+  margin-bottom: 44px;
+}
+
+.app-item.disabled .app-icon {
+  opacity: 0.4;
+}
+
+.app-title {
+  color: #1d1d26;
+  font-size: 24px;
+  min-height: 33px;
+  line-height: 33px;
+  font-weight: normal;
+}
+
+.app-item.disabled .app-title {
+  color: #8c8c95;
+}
+
+.app-disable-tip {
+  margin-top: 8px;
+  color: #e02005;
+  font-size: 16px;
+  line-height: 22px;
+}

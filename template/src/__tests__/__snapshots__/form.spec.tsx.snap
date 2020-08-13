@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`快照测试 详情页全页快照 1`] = `
+<ModalOrView
+  ModalComponent={[Function]}
+  mode="view"
+  onCancel={[Function]}
+  onOk={[Function]}
+  title="title"
+>
+  <Form(BaseForm)>
+    <FormItemRender
+      name="id"
+    >
+      <Input
+        type="hidden"
+      />
+    </FormItemRender>
+    <FormItemRender
+      label="{@@@}"
+      name="{@name@}"
+    >
+      <Input
+        type="text"
+      />
+    </FormItemRender>
+  </Form(BaseForm)>
+</ModalOrView>
+`;

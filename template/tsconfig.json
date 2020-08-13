@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "outDir": "lib",
+    "module": "esnext",
+    "lib": [
+      "es6",
+      "dom"
+    ],
+    "declaration": true,
+    "jsx": "preserve",
+    "strict": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "types": ["redux-persist", "jest"]
+  },
+  "include": [
+    "src",
+    "types/react-app-env.d.ts"
+  ]
+}

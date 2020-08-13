@@ -1,0 +1,24 @@
+.basic-layout .basic-layout-header {
+  background-color: white;
+  padding: 10px 16px;
+  display: flex;
+  justify-content: flex-end;
+  /* flex-wrap: wrap; */
+  align-items: center;
+}
+
+.basic-layout-header .global-search {
+  width: 200px;
+  margin-right: 20px;
+}
+
+.basic-layout-header .global-search :global(.ant-input) {
+  border: none;
+}
+
+.basic-layout .basic-layout-content {
+  margin: 0 16px;
+  padding: 16px;
+  background: rgb(255, 255, 255);
+  min-height: 280px;
+}

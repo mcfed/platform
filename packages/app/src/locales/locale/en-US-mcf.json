@@ -1,0 +1,17 @@
+{
+  "HeadSearchBar": {
+    "searchText": "search",
+    "resetText": "reset",
+    "upText": "collapse",
+    "downText": "expand"
+  },
+  "Panel": {
+    "okText": "ok",
+    "cancelText": "cancel"
+  },
+  "ButtonGroups": {
+    "title": "Confirm",
+    "okText": "ok",
+    "cancelText": "cancel"
+  }
+}
