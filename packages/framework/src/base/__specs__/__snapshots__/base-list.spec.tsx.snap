@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`方法测试全覆盖 mergeTableConfig|存在rowSelection属性 1`] = `
+Object {
+  "onChange": [Function],
+  "pagination": Object {
+    "pageSizeOptions": Array [
+      "10",
+      "20",
+      "50",
+      "100",
+    ],
+    "showQuickJumper": true,
+    "showSizeChanger": true,
+    "showTotal": [Function],
+    "size": "small",
+  },
+  "rowSelection": Object {
+    "onChange": [Function],
+    "selectedRowKeys": Array [],
+  },
+  "size": "middle",
+  "style": Object {
+    "width": "100%",
+  },
+}
+`;
+
+exports[`方法测试全覆盖 mergeTableConfig|空参 1`] = `
+Object {
+  "onChange": [Function],
+  "pagination": Object {
+    "pageSizeOptions": Array [
+      "10",
+      "20",
+      "50",
+      "100",
+    ],
+    "showQuickJumper": true,
+    "showSizeChanger": true,
+    "showTotal": [Function],
+    "size": "small",
+  },
+  "rowSelection": Object {
+    "onChange": [Function],
+    "selectedRowKeys": Array [],
+  },
+  "size": "middle",
+  "style": Object {
+    "width": "100%",
+  },
+}
+`;
+
+exports[`方法测试全覆盖 mergeTableConfig|返回的showTotal 1`] = `"共 15 条，当前第 11 至 第 15 条"`;

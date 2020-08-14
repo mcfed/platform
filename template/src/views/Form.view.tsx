@@ -1,9 +1,8 @@
 import React, {ReactNode} from 'react';
 import {Input} from 'antd';
-import {BaseForm, FormItem} from '@mcfed/components';
+import {BaseForm, FormItem, Panel} from '@mcfed/components';
 import {IRFormState, IParams} from '@mcfed/crud';
 import {BaseFormView, BaseFormViewProps} from '@user-center/framework';
-import {ModalOrView, Mode} from '@user-center/framework';
 
 import {IAction, IReducerState, IModel} from '../interface';
 
@@ -45,7 +44,7 @@ export default class FormView<M extends IModel> extends BaseFormView<
     // const saveSpin = spins(actions.fetchSave);
     // const itemSpin = spins(actions.fetchItem);
     return (
-      <ModalOrView
+      <Panel
         title={locale('title')}
         mode={mode}
         // confirmLoading={saveSpin}
@@ -63,7 +62,7 @@ export default class FormView<M extends IModel> extends BaseFormView<
           </FormItem>
           {@/columns@}
         </BaseForm>
-      </ModalOrView>
+      </Panel>
     );
   }
 }

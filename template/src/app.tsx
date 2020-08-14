@@ -1,16 +1,14 @@
 import React, {ComponentType} from 'react';
 import ReactDOM from 'react-dom';
-import {IntlProvider} from 'react-intl';
 import {HashRouter as Router, Switch, Route} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import {AppContainer} from 'react-hot-loader';
 import {PersistGate} from 'redux-persist/integration/react';
 import {ConnectedRouter} from 'connected-react-router';
-import {createStore} from '@user-center/app/lib/store/index';
+import {createStore} from '*/app';
 
 import * as DemoModule from '.';
 
-import 'antd/dist/antd.css';
 
 const {store, persistor, history} = createStore();
 
@@ -20,16 +18,13 @@ const App = () => (
   <Provider store={store.getStore()}>
     <PersistGate loading={null} persistor={persistor}>
       <ConnectedRouter history={history}>
-        <IntlProvider locale='zh-CN' onError={function(err) {}}>
           <Router>
             <Switch>
               <Route
                 path='/'
-                //@ts-ignore
                 component={store.loadRouterModule(DemoModule)}></Route>
             </Switch>
           </Router>
-        </IntlProvider>
       </ConnectedRouter>
     </PersistGate>
   </Provider>

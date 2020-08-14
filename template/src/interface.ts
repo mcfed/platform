@@ -33,8 +33,6 @@ export interface IReducerState {
     total?: number;
     current?: number;
   };
-  items?: IModel[];
-  item?: IModel;
 }
 
 // TODO: 描述各action、reducer、api需要的参数类型

@@ -10,8 +10,8 @@ import AppLocale from './locales';
 import BasicLayout from './layouts/BasicLayout';
 import ProtalLayout from './layouts/PortalLayout';
 import store, {history, persistor} from './store';
-import './app.css';
-import 'antd/dist/antd.css';
+import './app.less';
+// import 'antd/dist/antd.css';
 // import 'core-js/stable';
 import {ConnectedRouter} from 'connected-react-router';
 

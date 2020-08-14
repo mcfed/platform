@@ -1,19 +1,19 @@
 import React, {Fragment} from 'react';
 import {RouteProps, Switch, Route} from 'react-router';
+import i18n from '../locales/i18n';
 
 interface ModuleRoute extends RouteProps {
   mode?: 'modal' | 'view';
+  key?: string;
 }
 
 export function renderModuleRoutes(
   routes: ModuleRoute[],
   useSwitch = true
-): JSX.Element {
-  //@ts-ignore
+): JSX.Element | null {
   if (!Array.isArray(routes)) return null;
   const routeArr = routes.map((route, i) => (
     <Route
-      //@ts-ignore
       key={route.key || i}
       path={route.path}
       exact={route.exact}
@@ -21,10 +21,15 @@ export function renderModuleRoutes(
       render={props =>
         route.render ? (
           //@ts-ignore
-          route.render({...props, route: route, mode: route.mode})
+          route.render({...props, i18n: i18n, route: route, mode: route.mode})
         ) : (
           //@ts-ignore
-          <route.component {...props} route={route} mode={route.mode} />
+          <route.component
+            {...props}
+            i18n={i18n}
+            route={route}
+            mode={route.mode}
+          />
         )
       }
     />

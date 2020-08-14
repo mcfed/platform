@@ -1,25 +1,24 @@
 import {RouteProps} from 'react-router';
-import {computePath} from '@user-center/utils';
 
 import * as Containers from './container';
 function routes(props: RouteProps): Array<RouteProps> {
   const path = props.path as string;
   return [
     {
-      path: computePath(path),
+      path: path,
       exact: true,
       component: Containers.ListContainer
     },
     {
-      path: computePath(path, 'add'),
+      path: [path, 'add'].join("/"),
       component: Containers.FormContainer
     },
     {
-      path: computePath(path, ':id/edit'),
+      path: [path, ':id','edit'].join("/"),
       component: Containers.FormContainer
     },
     {
-      path: computePath(path, ':id'),
+      path: [path, ':id'].join("/"),
       component: Containers.DetailContainer
     }
   ];

@@ -70,7 +70,7 @@ export default class ListView<M extends IModel> extends BaseListView<
         showSearchButton={false}
         filterSubmitHandler={this.handleFilter.bind(this)}>
         <FormItem name='serverName'>
-          <Input defaultValue={query.name} />
+          <Input defaultValue={query.id} />
         </FormItem>
       </HeadSearchBar>
     );

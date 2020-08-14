@@ -9,7 +9,8 @@ const {
   addBabelPlugin,
   addWebpackPlugin,
   addWebpackResolve,
-  overrideDevServer
+  overrideDevServer,
+  addLessLoader
 } = require('@mcfed/cra');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
@@ -28,7 +29,7 @@ module.exports = {
     fixBabelImports('import', {
       libraryName: 'antd',
       libraryDirectory: 'es',
-      style: true
+      style: 'css'
     })(config);
     fixBabelImports('components', {
       libraryName: '@mcfed/components',
@@ -37,6 +38,13 @@ module.exports = {
       style: true
     })(config);
     customBabelLoaderInclude([path.resolve(__dirname, '..')])(config);
+    addLessLoader({
+      lessOptions: {
+        // If you are using less-loader@5 please spread the lessOptions to options directly
+        javascriptEnabled: true
+        // modifyVars: { '@primary-color': '#1DA57A' },
+      }
+    })(config);
     addWebpackResolve({
       mainFields: ['typescript', 'browser', 'module', 'main']
     })(config);
