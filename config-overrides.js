@@ -14,29 +14,6 @@ const {
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
 module.exports = {
-  // webpack: function(config, env) {
-  //   addBabelPlugin('babel-plugin-transform-typescript-metadata')(config);
-  //   // fixBabelImports('import', {
-  //   //   libraryName: 'antd',
-  //   //   libraryDirectory: 'es',
-  //   //   style: true
-  //   // })(config);
-  //   // fixBabelImports('components', {
-  //   //   libraryName: '@mcfed/components',
-  //   //   libraryDirectory: 'es',
-  //   //   camel2DashComponentName: false,
-  //   //   style: true
-  //   // })(config);
-  //   customBabelLoaderInclude([path.resolve(__dirname, '..')])(config);
-  //   // customBuildConfig()(config);
-  //   // customEntryConfig()(config);
-  //   // customKeepFunctionNameConfig()(config);
-  //   // addWebpackPlugin(new HardSourceWebpackPlugin())(config);
-  //   addWebpackResolve({
-  //     mainFields: ['typescript', 'browser', 'module', 'main']
-  //   })(config);
-  //   return config;
-  // },
   jest: function(config) {
     config.collectCoverageFrom = [
       'packages/**/src/**/*.{ts,tsx}',
@@ -66,13 +43,4 @@ module.exports = {
     config.testPathIgnorePatterns = ['<rootDir>/packages/demo'];
     return config;
   }
-  // devServer: overrideDevServer(
-  //   customProxyConfig({
-  //     '/usercenter': {
-  //       target: 'http://192.168.238.19:8020',
-  //       changeOrigin: true,
-  //       pathRewrite: {'^/usercenter': ''}
-  //     }
-  //   })
-  // )
 };

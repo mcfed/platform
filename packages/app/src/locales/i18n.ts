@@ -26,6 +26,7 @@ i18n
     fallbackLng: 'en',
     debug: true,
     keySeparator: false,
+    nsSeparator: '.',
     interpolation: {
       escapeValue: false // not needed for react as it escapes by default
     },
