@@ -4,15 +4,9 @@ import moment from 'moment';
 import zh_CN_antd from 'antd/lib/locale-provider/zh_CN';
 import zh_TW_antd from 'antd/lib/locale-provider/zh_TW';
 import en_US_antd from 'antd/lib/locale-provider/en_US';
-// //@ts-ignore
-// import en from "react-intl/locale-data/en";
-// //@ts-ignore
-// import zh from "react-intl/locale-data/zh";
-import './locale';
+import './global.json';
 import 'moment/locale/es';
 import 'moment/locale/zh-tw';
-
-
 
 /* 美创自定义组件国际化翻译 */
 import zh_CN_MCF from './locale/zh-CN-mcf.json';
@@ -58,9 +52,7 @@ export class AppLocale extends Component<LocaleProp> {
     const lang = appReducer.config.lang || navigator.language;
     return (
       <LocaleProvider locale={antdLocal[lang]}>
-         <I18nextProvider i18n={i18n}>
-          {children}
-         </I18nextProvider>
+        <I18nextProvider i18n={i18n}>{children}</I18nextProvider>
       </LocaleProvider>
     );
   }

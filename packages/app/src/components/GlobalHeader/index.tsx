@@ -1,9 +1,10 @@
 import React, {ReactNode, ComponentClass, Fragment} from 'react';
-import { Menu, Dropdown, Avatar} from 'antd';
+import {Menu, Dropdown, Avatar, Icon} from 'antd';
 
 import {ClickParam} from 'antd/lib/menu';
 import {BasicProps} from 'antd/lib/layout/layout';
 import './style.css';
+import SubMenu from 'antd/lib/menu/SubMenu';
 
 export interface GlobalHeaderProps extends BasicProps {
   avator?: ReactNode;
@@ -18,17 +19,24 @@ export enum MenuKeyEnum {
   logout = 'logout'
 }
 
-
 export class GlobalHeader extends React.Component<GlobalHeaderProps> {
   getMenu() {
-    const {user} = this.props;
-    const disabled = user.userOrigin !== 'MC_CENTER';
     return (
       <Menu onClick={this.handleMenuClick.bind(this)}>
         <Menu.Item key={MenuKeyEnum.profile}>基础资料</Menu.Item>
-        <Menu.Item key={MenuKeyEnum.passwd} disabled={disabled}>
-          修改密码
-        </Menu.Item>
+        <Menu.Item key={MenuKeyEnum.passwd}>修改密码</Menu.Item>
+        <Menu.Divider />
+        <SubMenu
+          key='sub1'
+          title={
+            <span>
+              <Icon type='mail' />
+              <span>切换语言</span>
+            </span>
+          }>
+          <Menu.Item key='zh_CN'>中文</Menu.Item>
+          <Menu.Item key='en_US'>English</Menu.Item>
+        </SubMenu>
         <Menu.Divider />
         <Menu.Item key={MenuKeyEnum.logout}>退出登录</Menu.Item>
       </Menu>
@@ -56,6 +64,7 @@ export class GlobalHeader extends React.Component<GlobalHeaderProps> {
         <div className='header-content'>{children}</div>
         <Dropdown
           className='header-icon'
+          // overlay={null}
           overlay={this.getMenu()}
           placement='bottomLeft'>
           <Avatar>{avator}</Avatar>
