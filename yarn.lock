@@ -1388,7 +1388,7 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@mcfed/components@^0.3.0-beta3":
+"@mcfed/components@^0.3.0-beta2", "@mcfed/components@^0.3.0-beta3":
   version "0.3.0-beta4"
   resolved "https://registry.yarnpkg.com/@mcfed/components/-/components-0.3.0-beta4.tgz#b5d227d6dbaa9a1d5de3c1a68e706585dd8d344b"
   integrity sha512-ZPzfQX7YDbYXmtTjLwt6gfDQBgysceKbUp7O6ON9LdAoDGxynkTqfplrTYt0mnc2Z6zvZZv9qNgisviVdXbzgg==
@@ -1465,7 +1465,7 @@
     history "^4.10.1"
     react "^16.13.1"
 
-"@mcfed/utils@^0.2.0-rc8", "@mcfed/utils@^0.2.1":
+"@mcfed/utils@^0.2.0-rc8", "@mcfed/utils@^0.2.1", "@mcfed/utils@^0.2.2":
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/@mcfed/utils/-/utils-0.2.2.tgz#424cf67e4a6efef48c0a899477883975e4dca182"
   integrity sha512-f56d/n+FJMemMfrihmCCOrR60UF1I4ngX5NSCPm3KtiUqdTh8ipZwUUrUlh81ix4TaG1i3SZuguZlbLhp3gxug==
@@ -1595,7 +1595,7 @@
     "@svgr/plugin-svgo" "^4.3.1"
     loader-utils "^1.2.3"
 
-"@testing-library/react-hooks@^3.4.1":
+"@testing-library/react-hooks@^3.3.0", "@testing-library/react-hooks@^3.4.1":
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/@testing-library/react-hooks/-/react-hooks-3.4.1.tgz#1f8ccd21208086ec228d9743fe40b69d0efcd7e5"
   integrity sha512-LbzvE7oKsVzuW1cxA/aOeNgeVvmHWG2p/WSzalIGyWuqZT3jVcNDT5KPEwy36sUYWde0Qsh32xqIUFXukeywXg==
@@ -1718,6 +1718,11 @@
   integrity sha512-L7MBvwfNpe7yVPTXLn32df/EK+AMBFAFvZrRuArGs7npEWnlziUXK+5GMIUTI4NIuwok3XibsjXCs5HxviYXjg==
   dependencies:
     jest-diff "^24.3.0"
+
+"@types/js-base64@^2.3.1":
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/@types/js-base64/-/js-base64-2.3.2.tgz#266be882b28b52649b1d34db9515e54c8ef783f2"
+  integrity sha512-iGjZEnheu9n53fhlU+QLovdKHsdwPJ79iammNM0opTEp18zcJ/nNAIthuMilJoDPNUQHoqRAJdDNI5rxHY4nkA==
 
 "@types/json-schema@^7.0.3", "@types/json-schema@^7.0.4":
   version "7.0.5"

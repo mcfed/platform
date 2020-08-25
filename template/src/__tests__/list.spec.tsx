@@ -46,15 +46,3 @@ describe('快照测试', () => {
   });
 });
 
-// describe("方法测试全覆盖", () => {
-//   const props = {
-//     reducer: {
-//       config: {
-//         id: "testId",
-//       },
-//     },
-//     location: {
-//       pathname: "/test",
-//     },
-//   };
-// });

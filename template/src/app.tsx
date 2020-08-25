@@ -5,12 +5,12 @@ import {Provider} from 'react-redux';
 import {AppContainer} from 'react-hot-loader';
 import {PersistGate} from 'redux-persist/integration/react';
 import {ConnectedRouter} from 'connected-react-router';
-import {createStore} from '*/app';
+import { createHashHistory } from 'history';
+import {store,persistor} from '@platform/app';
 
-import * as DemoModule from '.';
+import * as Module from '.';
 
-
-const {store, persistor, history} = createStore();
+const history = createHashHistory()
 
 global.API_PREFIX = process.env.npm_package_config_API_SERVER as string;
 
@@ -22,7 +22,7 @@ const App = () => (
             <Switch>
               <Route
                 path='/'
-                component={store.loadRouterModule(DemoModule)}></Route>
+                component={store.loadRouterModule(Module)}></Route>
             </Switch>
           </Router>
       </ConnectedRouter>

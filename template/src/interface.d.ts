@@ -1,4 +1,10 @@
 import {PK} from '@mcfed/crud';
+declare var API_PREFIX: string;
+declare namespace NodeJS {
+  interface Global {
+    API_PREFIX: string;
+  }
+}
 
 export interface IModel {
   id: number;
@@ -21,11 +27,7 @@ export interface IReducer {
 
 export interface IApi {
   fetchPage(params: any): Promise<any>;
-  fetchItem(params: any): Promise<any>;
-  fetchSave(params: any): Promise<any>;
-  fetchUpdate(params: any): Promise<any>;
-  fetchDelete(params: any): Promise<any>;
-}
+ }
 
 export interface IReducerState {
   page?: {

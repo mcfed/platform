@@ -1,7 +1,5 @@
 const path = require('path');
 const {
-  customBuildConfig,
-  customEntryConfig,
   customProxyConfig,
   customBabelLoaderInclude,
   customKeepFunctionNameConfig,
@@ -10,7 +8,8 @@ const {
   addWebpackPlugin,
   addWebpackResolve,
   overrideDevServer,
-  addLessLoader
+  addLessLoader,
+  addWebpackAlias
 } = require('@mcfed/cra');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
@@ -20,6 +19,7 @@ module.exports = {
       paths.appPath,
       'react-app-env.d.ts'
     );
+    paths.appIndexJs = path.resolve(paths.appSrc, 'app.tsx');
     paths.testsSetup = path.resolve(paths.appPath, 'setupTests');
 
     return paths;
@@ -48,8 +48,10 @@ module.exports = {
     addWebpackResolve({
       mainFields: ['typescript', 'browser', 'module', 'main']
     })(config);
-    customBuildConfig()(config);
-    customEntryConfig()(config);
+    // addWebpackAlias({
+    //   'react':path.resolve(__dirname,"../../node_modules/react"),
+    //   'react-dom':path.resolve(__dirname,"../../node_modules/react-dom")
+    // })
     customKeepFunctionNameConfig()(config);
     addWebpackPlugin(new HardSourceWebpackPlugin())(config);
     return config;

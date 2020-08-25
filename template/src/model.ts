@@ -16,8 +16,8 @@ export default class  {@namespace@} extends BaseModel implements IModel {
   @pk()
   id!: number;
   {@#columns@}
-    @attr()
-    {@name@}!: string;
+  @attr()
+  {@name@}!: string;
   {@/columns@}
 
   getName() {}

@@ -75,15 +75,7 @@ export default class ListView<M extends IModel> extends BaseListView<
       </HeadSearchBar>
     );
   }
-  render(): ReactNode {
-    return (
-      <Panel footer={false}>
-        {this.renderSearchForm()}
-        {this.renderToolbar()}
-        {this.renderDataTable()}
-      </Panel>
-    );
-  }
+  
 
   renderToolbar(): ReactNode {
     const {selectedRowKeys} = this.state;
@@ -143,6 +135,16 @@ export default class ListView<M extends IModel> extends BaseListView<
         rowSelection={null}
         page={reducer.page}
       />
+    );
+  }
+  
+  render(): ReactNode {
+    return (
+      <Panel footer={false}>
+        {this.renderSearchForm()}
+        {this.renderToolbar()}
+        {this.renderDataTable()}
+      </Panel>
     );
   }
 }

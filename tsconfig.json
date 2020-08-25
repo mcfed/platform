@@ -5,7 +5,7 @@
     "module": "esnext",
     "declaration": true,
     "lib": ["es6", "dom"],
-    "jsx": "preserve",
+    "jsx": "react",
     "strict": true,
     "moduleResolution": "node",
     "esModuleInterop": true,

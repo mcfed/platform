@@ -1,7 +1,7 @@
 {
   "extends": "../../tsconfig",
   "compilerOptions": {
-    "types": ["redux-persist", "jest"]
+    // "types": ["redux-persist", "jest"]
   },
   "include": ["src"]
 }

@@ -4,13 +4,22 @@ const {
   addWebpackPlugin,
   addWebpackResolve,
   customBuildConfig,
-  customEntryConfig,
   customBabelLoaderInclude,
   customKeepFunctionNameConfig
 } = require('@mcfed/cra');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
 module.exports = {
+  paths: function(paths, env) {
+    paths.appTypeDeclarations = path.resolve(
+      paths.appPath,
+      'react-app-env.d.ts'
+    );
+    paths.appIndexJs = path.resolve(paths.appSrc, 'app.tsx')
+    paths.testsSetup = path.resolve(paths.appPath, 'setupTests');
+
+    return paths;
+  },
   webpack: function(config, env) {
     addBabelPlugin('babel-plugin-transform-typescript-metadata')(config);
     customBabelLoaderInclude([path.resolve(__dirname, '..')])(config);
@@ -33,7 +42,7 @@ module.exports = {
       '!src/index.ts',
       '!src/interface.ts',
       '!src/app.tsx',
-      '!src/locales/index.ts'
+      '!src/i18n/index.ts'
     ];
     return config;
   }

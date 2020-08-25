@@ -10,7 +10,7 @@ export interface FormProps<M extends IModel> extends BaseFormViewProps {
   actions: IAction;
   reducer: IReducerState;
   item: M;
-  mode?: Mode;
+  // mode?: Mode;
 }
 
 interface FormState<M extends IModel> extends IRFormState {
@@ -40,13 +40,12 @@ export default class FormView<M extends IModel> extends BaseFormView<
   }
 
   render(): ReactNode {
-    const {item, actions, locale, spins, mode} = this.props;
+    const {item, actions, locale, spins} = this.props;
     // const saveSpin = spins(actions.fetchSave);
     // const itemSpin = spins(actions.fetchItem);
     return (
       <Panel
         title={locale('title')}
-        mode={mode}
         // confirmLoading={saveSpin}
         // loading={itemSpin}
         confirmLoading={spins(actions.fetchSave)}
@@ -58,7 +57,7 @@ export default class FormView<M extends IModel> extends BaseFormView<
           </FormItem>
           {@#columns@}
           <FormItem name='{@name@}' label='{@name@}'>
-            <Input defaultValue={item.name} />
+            <Input defaultValue={item.{@name@}} />
           </FormItem>
           {@/columns@}
         </BaseForm>
