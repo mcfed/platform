@@ -27,15 +27,15 @@
 
 ## 新加模块步骤 - test
 
-1. 利用命令行和指定的模版文件夹生存对应的模块 语法： [template][需要生成的模块名] [拷贝自哪个文件夹 缺省为 template]
+1. 利用 template 命令行生成新的功能模块代码
 
-- 在 platform 根目录下运行命令行 `template test template`
+- 在 platform 根目录下运行命令行 `yarn template test template`
   > > ```
-  > > guorong@guorongs-MacBook-Pro:~/Desktop/mcfed/platform$ yarn template test template
+  > > yarn template test template
   > > ```
 - 生成成功会有如下显示
   > > ```
-  > > guorong@guorongs-MacBook-Pro:~/Desktop/mcfed/platform$ yarn template test template
+  > > yarn template test template
   > > yarn run v1.13.0
   > > $ mcfcra -r test template
   > > .crarc path is  /Users/guorong/Desktop/mcfed/platform/node_modules/@mcfed/cra/.crarc
@@ -84,7 +84,7 @@
   > >  }
   > > ```
 
-4. 启动项目，查看效果
+4. 启动项目，查看新模块的效果
    > > ```
    > > yarn
    > > yarn start
