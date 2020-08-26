@@ -8,8 +8,6 @@ global.fetchMock = fetchMock;
 global.API_PREFIX = '';
 global.MOCK_API_PREFIX = '';
 
-setupTestFetchInterceptor();
-
 // global.fetch = fetch
 configure({adapter: new Adapter()});
 expect.addSnapshotSerializer(createSerializer({mode: 'deep'}));

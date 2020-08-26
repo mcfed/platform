@@ -40,6 +40,8 @@ module.exports = {
       '<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}',
       '<rootDir>/packages/**/src/**/*.{spec,test}.{js,jsx,ts,tsx}'
     ];
+    config.setupTestFrameworkScriptFile = '<rootDir>/setupTests.ts';
+    config.transformIgnorePatterns = ['<rootDir>/node_modules/(?!@mcfed).*/'];
     config.testPathIgnorePatterns = ['<rootDir>/packages/demo'];
     return config;
   }
