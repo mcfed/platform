@@ -89,7 +89,7 @@
 
 - 进入 packages/app 项目启动模块，在 packages/app/src/router/index.tsx 文件中配置新建模块的路由入口
 
-  ```json
+  ```js
   {
     "path": "test", // 路由路径
     "icon": "team", // 侧边栏菜单展示icon
