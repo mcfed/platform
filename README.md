@@ -30,62 +30,77 @@
 1. 利用 template 命令行生成新的功能模块代码
 
 - 在 platform 根目录下运行命令行 `yarn template test template`
-  > > ```
-  > > yarn template test template
-  > > ```
+
+  ```shell
+  yarn template test template
+  ```
+
 - 生成成功会有如下显示
-  > > ```
-  > > yarn template test template
-  > > yarn run v1.13.0
-  > > $ mcfcra -r test template
-  > > .crarc path is  /Users/guorong/Desktop/mcfed/platform/node_modules/@mcfed/cra/.crarc
-  > > 模块test创建成功 /Users/guorong/Desktop/mcfed/platform/packages/test
-  > > ✨  Done in 0.73s.
-  > > ```
+
+  ```shell
+  yarn template test template
+  ```
+
+  ```logs
+  yarn run v1.13.0
+  mcfcra -r test template
+  .crarc path is  /Users/guorong/Desktop/mcfed/platform/node_modules/@mcfed/cra/.crarc
+  模块test创建成功 /Users/guorong/Desktop/mcfed/platform/packages/test
+  ✨  Done in 0.73s.
+  ```
 
 2. 对新生成的模块进行构建打包 build
 
 - 进入 packages/test/目录对 test 进行打包，执行命令行 `yarn build`
-  > > ```
-  > > cd packages/test/
-  > > yarn build
-  > > ```
+
+  ```shell
+  cd packages/test/
+  yarn build
+  ```
+
 - 执行失败情况一：未对依赖包进行申明，会报错找不到 module ‘@user-center/framework’ 或 ‘@user-center/app’
-  > > ```
-  > > Cannot find module '@user-center/framework' or its corresponding type declarations
-  > > ```
+
+  ```shell
+  Cannot find module '@user-center/framework' or its corresponding type declarations
+  ```
+
 - 出现此 error 时，需要依次进入相对应的包分别执行 `yarn build`
-  > > ```
-  > > cd ..
-  > > cd packages/framework/
-  > > yarn build
-  > > cd ..
-  > > cd packages/framework/
-  > > yarn build
-  > > cd ..
-  > > cd packages/test/
-  > > yarn build
-  > > ```
+
+  ```shell
+  cd ..
+  cd packages/framework/
+  yarn build
+  cd ..
+  cd packages/framework/
+  yarn build
+  cd ..
+  cd packages/test/
+  yarn build
+  ```
+
 - test build 成功后会答应出如下信息
-  > > ```
-  > > .....
-  > > ✨  Done in 3.09s.
-  > > ```
+
+  ```logs
+  .....
+  ✨  Done in 3.09s.
+  ```
 
 3. 对新生成的模块进行入口路由配置
 
 - 进入 packages/app 项目启动模块，在 packages/app/src/router/index.tsx 文件中配置新建模块的路由入口
-  > > ```
-  > > {
-  > >    path: 'test', // 路由路径
-  > >    icon: 'team', // 侧边栏菜单展示icon
-  > >    name: 'test', // 侧边栏菜单展示title
-  > >    component: loadableMoudle(import('@platform/test')) // loadableMoudle 加载新建模块
-  > >  }
-  > > ```
+
+  ```json
+  {
+    "path": "test", // 路由路径
+    "icon": "team", // 侧边栏菜单展示icon
+    "name": "test", // 侧边栏菜单展示title
+    "component": loadableMoudle(import("@platform/test")) // loadableMoudle 加载新建模块
+  }
+  ```
 
 4. 启动项目，查看新模块的效果
-   > > ```
-   > > yarn
-   > > yarn start
-   > > ```
+
+```shell
+yarn
+yarn start
+```
