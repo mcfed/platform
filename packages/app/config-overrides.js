@@ -54,6 +54,9 @@ module.exports = {
     // })
     customKeepFunctionNameConfig()(config);
     addWebpackPlugin(new HardSourceWebpackPlugin())(config);
+    addWebpackAlias({
+      react: path.resolve(__dirname, '../../node_modules/react')
+    })(config);
     return config;
   },
   jest: function(config) {

@@ -6,9 +6,9 @@ export function withTokenAuth(Component: ComponentType<any>) {
       super(props);
       const {history, appReducer} = props;
       const user = appReducer?.user;
-      if (!user?.token) {
-        history.push('/not-login/login');
-      }
+      // if (!user?.token) {
+      //   history.push('/not-login/login');
+      // }
     }
     render() {
       return <Component {...this.props} />;

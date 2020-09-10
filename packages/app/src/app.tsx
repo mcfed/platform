@@ -10,6 +10,8 @@ import AppLocale from './locales';
 import BasicLayout from './layouts/BasicLayout';
 import ProtalLayout from './layouts/PortalLayout';
 import store, {history, persistor} from './store';
+import {routes} from './router';
+import {ReactRouter, SPARouter} from '@mcfed/router';
 import './app.less';
 // import 'antd/dist/antd.css';
 // import 'core-js/stable';
@@ -19,19 +21,15 @@ global.API_PREFIX = '';
 if (process.env.NODE_ENV === 'development') {
   global.API_PREFIX = '/usercenter';
 }
-
+const router = new SPARouter(history, routes);
 const App = () => (
   <Provider store={store.getStore()}>
     <PersistGate loading={null} persistor={persistor}>
       <ConnectedRouter history={history}>
         <AppLocale>
-          <Router>
-            <Switch>
-              <Route path='/portal' component={ProtalLayout} />
-              <Redirect exact from='/' to='/dashboard'></Redirect>
-              <Route path='/' component={BasicLayout} />
-            </Switch>
-          </Router>
+          <ReactRouter router={router}>
+            <BasicLayout />
+          </ReactRouter>
         </AppLocale>
       </ConnectedRouter>
     </PersistGate>

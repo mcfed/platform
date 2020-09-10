@@ -1,10 +1,11 @@
-import React, {useState, useMemo} from 'react';
+import React, {useState, useMemo, useContext} from 'react';
 import {connect} from 'react-redux';
 import {Selector, Container} from '@mcfed/core';
 import {Icon, Menu} from 'antd';
 import {Link, NavLink} from 'react-router-dom';
 import {useLocation, useHistory} from 'react-router';
 import {useTranslation} from 'react-i18next';
+import {RouterProvider} from '@mcfed/router';
 import {
   AppLayout,
   AppSider,
@@ -27,6 +28,7 @@ import {
 import {GlobalHeader} from '../components';
 import {RouteItem} from '../interface';
 import {computePath} from '../utils';
+import {ReactRoute} from '@mcfed/router';
 
 const {defaultMergeProps} = Container;
 
@@ -51,6 +53,7 @@ export function BasicLayout(props: any) {
   const history = useHistory();
   const {t} = useTranslation();
   const {pathname} = location;
+  const {router} = useContext(RouterProvider);
   const {auths, user} = appReducer;
   const userId = user?.id;
   const activeRoutes = useMemo(() => filterActiveRoutes(routes, auths), [
@@ -74,14 +77,14 @@ export function BasicLayout(props: any) {
   function renderMenuItem(currentRoute: RouteItem, parent: RouteItem) {
     return (
       <Menu.Item key={currentRoute.key || currentRoute.path}>
-        <NavLink
-          to={{
-            pathname: computePath(parent?.path, currentRoute.path),
-            state: {refresh: true}
+        <div
+          onClick={() => {
+            console.log(router);
+            router.push(computePath(parent?.path, currentRoute.path));
           }}>
           {currentRoute.icon && <Icon type={currentRoute.icon} />}
           <span>{t(currentRoute.name)}</span>
-        </NavLink>
+        </div>
       </Menu.Item>
     );
   }
@@ -114,7 +117,7 @@ export function BasicLayout(props: any) {
           className={[styles['basic-layout-content'], 'base-layout-main'].join(
             ' '
           )}>
-          <AppRouter routerConfig={activeRoutes} />
+          <ReactRoute />
         </Content>
       </AppLayout>
     </AppLayout>
