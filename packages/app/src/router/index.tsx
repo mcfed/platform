@@ -3,7 +3,9 @@ import Loadable from 'react-loadable';
 import {RouterConfig} from '../interface';
 import store from '../store';
 import {renderModuleRoutes} from '../components/render-module-routes';
-import {IRoute} from '@mcfed/router'
+import {IRoute,IRoutes} from '@mcfed/router'
+import {router as spaRouter} from '../app'
+import * as Containers  from '@platform/routerTest/src/container'
 export * from './AppRouter';
 
 /**
@@ -11,16 +13,18 @@ export * from './AppRouter';
  * @param importModule
  */
 function loadableMoudle(importModule: any) {
-  return Loadable({
-    loader: () =>
-      new Promise((resolve: any, rejects) => {
-        store.importRouterModule(importModule).then(view => {
-          resolve((props: any) => renderModuleRoutes(view(props), false));
-        });
-      }),
-    //@ts-ignore
-    loading: () => 'loading'
-  });
+  
+  // return Loadable({
+  //   loader: () =>
+  //     new Promise((resolve: any, rejects) => {
+  //       console.log(importModule)
+  //       store.importRouterModule(importModule).then(view => {
+  //         resolve((props: any) => renderModuleRoutes(view(props), false));
+  //       });
+  //     }),
+  //   //@ts-ignore
+  //   loading: () => 'loading'
+  // });
 }
 
 export const routes: RouterConfig<any, string> = [
@@ -47,9 +51,17 @@ export const routerConfig: IRoute = {
       component: () => <div>@platfrom</div>,
     },
     {
-      path: "/routertest",
+      path: "",
       name: "aaa",
-      component: () => <div>@routertest</div>,
+      children: [
+        {
+          path: '/routertest',
+          name:"list",
+          //@ts-ignore
+          component: ()=> Containers.ListContainer
+        },
+       
+      ]
     },
   ],
 };

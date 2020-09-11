@@ -1,26 +1,30 @@
 import {RouteProps} from 'react-router';
+import {IRoutes} from '@mcfed/router'
 
 import * as Containers from './container';
-function routes(props: RouteProps): Array<RouteProps> {
+function routes(props: RouteProps): IRoutes {
   const path = props.path as string;
   return [
     {
       path: path,
-      exact: true,
-      component: Containers.ListContainer
+      name:"list",
+      component: ()=>Containers.ListContainer
     },
     {
       path: [path, 'add'].join('/'),
-      component: Containers.FormContainer
+      name:"add",
+      component: ()=>Containers.FormContainer
     },
     {
       path: [path, ':id', 'edit'].join('/'),
-      component: Containers.FormContainer
+      name:"edit",
+      component: ()=>Containers.FormContainer
     },
     {
       path: [path, ':id'].join('/'),
-      component: Containers.DetailContainer
+      name:"detail",
+      component: ()=>Containers.DetailContainer
     }
   ];
 }
-export default routes;
+export default routes({path:'/routertest'});

@@ -21,7 +21,7 @@ global.API_PREFIX = '';
 if (process.env.NODE_ENV === 'development') {
   global.API_PREFIX = '/usercenter';
 }
-const router = new SPARouter(history, routerConfig);
+export const router = new SPARouter(history, routerConfig);
 const App = () => (
   <Provider store={store.getStore()}>
     <PersistGate loading={null} persistor={persistor}>
