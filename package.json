@@ -14,7 +14,7 @@
     "template": "mcfcra -r"
   },
   "devDependencies": {
-    "@mcfed/cra": "0.2.0",
+    "@mcfed/cra": "0.2.2-rc2",
     "husky": "^2.7.0",
     "lint-staged": "8.0.0",
     "prettier": "^1.19.1",
@@ -44,7 +44,10 @@
     "MOCK_SERVER": "/mock"
   },
   "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.11.0",
     "@commitlint/config-conventional": "^9.1.2",
-    "babel-plugin-import": "^1.13.0"
+    "@mcfed/router": "^1.0.0-beta",
+    "babel-plugin-import": "^1.13.0",
+    "universal-router": "^9.0.1"
   }
 }

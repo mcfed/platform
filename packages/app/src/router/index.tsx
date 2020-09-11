@@ -3,7 +3,7 @@ import Loadable from 'react-loadable';
 import {RouterConfig} from '../interface';
 import store from '../store';
 import {renderModuleRoutes} from '../components/render-module-routes';
-
+import {IRoute} from '@mcfed/router'
 export * from './AppRouter';
 
 /**
@@ -28,7 +28,7 @@ export const routes: RouterConfig<any, string> = [
     path: 'dashboard',
     icon: 'team',
     name: 'MENU.DASHBOARD',
-    component: () => <div>@platfrom</div>
+    component: () => <div>@platfrom</div>,
   },
   {
     path: 'routertest',
@@ -37,3 +37,19 @@ export const routes: RouterConfig<any, string> = [
     component: () => loadableMoudle(import('@platform/routerTest'))
   }
 ];
+
+export const routerConfig: IRoute = {
+  path: "",
+  children: [
+    {
+      path: "/dashboard", // optional, matches both "/posts" and "/posts/"
+      name: "app",
+      component: () => <div>@platfrom</div>,
+    },
+    {
+      path: "/routertest",
+      name: "aaa",
+      component: () => <div>@routertest</div>,
+    },
+  ],
+};

@@ -5,7 +5,7 @@ import {Icon, Menu} from 'antd';
 import {Link, NavLink} from 'react-router-dom';
 import {useLocation, useHistory} from 'react-router';
 import {useTranslation} from 'react-i18next';
-import {RouterProvider} from '@mcfed/router';
+import {RouterProvider,ReactRoute} from '@mcfed/router';
 import {
   AppLayout,
   AppSider,
@@ -28,7 +28,6 @@ import {
 import {GlobalHeader} from '../components';
 import {RouteItem} from '../interface';
 import {computePath} from '../utils';
-import {ReactRoute} from '@mcfed/router';
 
 const {defaultMergeProps} = Container;
 
@@ -62,7 +61,6 @@ export function BasicLayout(props: any) {
   const logoutAction = useLogoutAction();
   useChangeTitleConfig(globalConfig);
   const breadcrumbRoutes = useBreadcrumbRoutes(activeRoutes, t, pathname);
-  console.log(breadcrumbRoutes);
   const [icon, setIcon] = useState('menu-fold');
   const handleMenuSelect = useHandleMenuSelect({
     userId,
