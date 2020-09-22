@@ -32,26 +32,26 @@
 ### 基本代码结构
 
 ```ts
-import { InjectFactory } from "@mcfed/core"; // 获取依赖注入工厂
-import { PK } from "@mcfed/crud"; // 获取常见的id等参数类型，非必要
+import {InjectFactory} from '@mcfed/core'; // 获取依赖注入工厂
+import {PK} from '@mcfed/crud'; // 获取常见的id等参数类型，非必要
 
-import { ICarAction } from "./interface"; // 获取action的接口声明，非必要
-import Api from "./api"; // 获取依赖的api类定义
-import Reducer from "./reducer"; // 获取依赖的reducer类定义
+import {ICarAction} from './interface'; // 获取action的接口声明，非必要
+import Api from './api'; // 获取依赖的api类定义
+import Reducer from './reducer'; // 获取依赖的reducer类定义
 
-const { Injectable } = InjectFactory; // 从依赖注入工厂中读取依赖注入装饰器
+const {Injectable} = InjectFactory; // 从依赖注入工厂中读取依赖注入装饰器
 
 @Injectable // 使用依赖注入装饰器
 class CarAction implements ICarAction {
   constructor(public readonly reducer: Reducer, public readonly api: Api) {} // 通过public/protected/private访问修饰符让赋值操作自动完成
   fetchDelete(ids: PK | PK[]): void {
-    throw new Error("Method not implemented.");
+    throw new Error('Method not implemented.');
   }
-  stop(payload: { a: string; b: number }) {
-    console.log("stop", payload.a, payload.b);
+  stop(payload: {a: string; b: number}) {
+    console.log('stop', payload.a, payload.b);
   }
   fetchItem() {
-    throw new Error("Method not implemented.");
+    throw new Error('Method not implemented.');
   }
   async fetchPage() {
     this.reducer.savePage(await this.api.fetchPage()); // 通过this读取reducer和api实例的方法并按实际场景进行调用
@@ -67,7 +67,7 @@ class CarAction implements ICarAction {
 const dispatchToProps = (dispatch: Dispatch, props: object) => {
   return {
     dispatch,
-    actions: InjectFactory.ActionFactory(CarAction, dispatch, namespace), // 通过工厂创建action实例
+    actions: InjectFactory.ActionFactory(CarAction, dispatch, namespace) // 通过工厂创建action实例
   };
 };
 
@@ -81,14 +81,14 @@ class ListView<M extends Model> extends RListPage<ListProps<M>, ListState<M>> {
   // ...
   handlerMenu(rowkeys: PK | PK[], actionType: string): void {
     console.log(actionType);
-    const { actions } = this.props; // 从props中读取action实例
-    if (actionType === "add") {
+    const {actions} = this.props; // 从props中读取action实例
+    if (actionType === 'add') {
       this.goAdd();
-    } else if (actionType === "edit") {
+    } else if (actionType === 'edit') {
       this.goEdit(rowkeys as PK);
-    } else if (actionType === "detail") {
+    } else if (actionType === 'detail') {
       this.goDetail(rowkeys as PK);
-    } else if (actionType === "delete") {
+    } else if (actionType === 'delete') {
       actions.fetchDelete(rowkeys); // 调用action实例中的方法
     }
     this.clearSelectRows();
@@ -104,21 +104,21 @@ class ListView<M extends Model> extends RListPage<ListProps<M>, ListState<M>> {
 ### 基本代码结构
 
 ```ts
-import { ICarReducer, IReducerState } from "./interface"; // 获取reducer的接口声明，非必要
+import {ICarReducer, IReducerState} from './interface'; // 获取reducer的接口声明，非必要
 
 class CarReducer implements ICarReducer {
   // 定义了store的初始数据
   private initalState: IReducerState = {
     page: {
       pageSize: 10,
-      total: 0,
-    },
+      total: 0
+    }
   };
   // proxy识别的特殊方法，@mcfed/core会拦截并返回一个特殊reducer函数
   getReducer() {}
   // 每个方法对应常规reducer的一个case（虽然实际上不是通过case识别的）
   saveItem() {
-    return "sss";
+    return 'sss';
   }
   // 与常规reducer不一样的是，state并不是第一个参数而是第二个参数，且非必填
   savePage(payload: ResponsePage, state?: IReducerState): IReducerState {
@@ -126,8 +126,8 @@ class CarReducer implements ICarReducer {
       page: {
         pageSize: payload.pageSize,
         current: payload.currentPage,
-        total: payload.total,
-      },
+        total: payload.total
+      }
     };
   }
 }
@@ -144,16 +144,16 @@ class CarReducer implements ICarReducer {
 ### 基本代码结构
 
 ```ts
-import { FetchUtils } from "@mcfed/utils"; // 用于发起ajax请求的工具或引擎，非必要
+import {FetchUtils} from '@mcfed/utils'; // 用于发起ajax请求的工具或引擎，非必要
 
-import { IApi } from "./interface"; // 获取api的接口声明，非必要
+import {IApi} from './interface'; // 获取api的接口声明，非必要
 
-const API_PREFIX = ""; // 请求的公共地址前缀，非必要
+const API_PREFIX = ''; // 请求的公共地址前缀，非必要
 export default class Api implements IApi {
   // 每个方法对应一种请求场景
   fetchList(params: any) {
     return FetchUtils.fetchList(`${API_PREFIX}/api_prefix`, {
-      body: params,
+      body: params
     });
   }
 }
@@ -165,17 +165,17 @@ export default class Api implements IApi {
 
 ## model.ts
 
-定义本模块的持久层数据模型，包括含有的字段、字段的来源（计算值）等
+定义本模块的持久层数据模型，包括含有的字段、字段的来源（计算值）等，
 
 ### 基本代码结构
 
 ```ts
-import { ORMModel } from "@mcfed/core"; // 基于ORM的模型类
-import { IModel } from "./interface"; // 获取model的接口声明，非必要
+import {ORMModel} from '@mcfed/core'; // 基于ORM的模型类
+import {IModel} from './interface'; // 获取model的接口声明，非必要
 
-const { attr, BaseModel, pk } = ORMModel; // 来自于redux-orm的api，用于描述数据模型的字段
+const {attr, BaseModel, pk} = ORMModel; // 来自于redux-orm的api，用于描述数据模型的字段
 
-export const namespace = "Abcd"; // 当前模型的命名空间，用于在运行时与其他模块进行区分
+export const namespace = 'Abcd'; // 当前模型的命名空间，用于在运行时与其他模块进行区分
 
 export default class Abcd extends BaseModel implements IModel {
   constructor(props: any) {

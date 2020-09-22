@@ -23,6 +23,90 @@
     └── index.less // 样式文件，一般采用css-module风格编写及使用
 ```
 
+## interface.ts
+
+### 作用
+
+制定本模块的类型标准，如api、action、model(持久化数据类型)、等，约束编码过程中的类型判断
+
+### 基本代码结构
+
+```js
+// app模块 定义 User 接口约束
+export interface User {
+  id?: number;
+  accountName?: string;
+  level?: string;
+  needSetPd?: boolean;
+  token?: string;
+  userName?: string;
+}
+
+// 规范 Api 返回的数据结构类型
+export interface ApiResData<T> {
+  code: number;
+  msg: string;
+  data: T;
+}
+
+// ...
+```
+
+> 编写模块过程中最好按照先编写单元测试，在进行实际编码的流程。
+> 在我们编写单元测试过程中会提前对自己要变编写的代码有一个大概的了解，有助于我们写出易维护的代码
+
+## api.spec.ts
+
+## api.ts
+
+定义 ajax 请求的接口
+
+### 基本代码结构
+
+```ts
+import {FetchUtils} from '@mcfed/utils'; // 用于发起ajax请求的工具或引擎，非必要
+
+import {IApi} from './interface'; // 获取api的接口声明，非必要
+
+const API_PREFIX = ''; // 请求的公共地址前缀，非必要
+export default class Api implements IApi {
+  // 每个方法对应一种请求场景
+  fetchList(params: any) {
+    return FetchUtils.fetchList(`${API_PREFIX}/api_prefix`, {
+      body: params
+    });
+  }
+}
+```
+
+### 如何在 Action 中使用
+
+借由依赖注入及访问修饰符带来的便利性，Action 实例可以直接通过`this`获取到 api 类的实例并调用其方法来发起一个 ajax 请求
+
+## action.spec.ts
+
+对于 action 的单元测试思路很明确，我们在 action 中主要做的动作有如下：
+* 调用模块 api 获取所需数据
+* 更改持久化模块数据
+
+### 基本代码结构
+
+```js
+// 例如获取单个条目数据详情数据获取 case
+it('fetchItem-success', () => {
+  // 测试内容大致包括函数调用情况、方法执行顺序、处理成功/错误的动作
+  (action.api.fetchItem as jest.Mock).mockResolvedValueOnce(successMockData);
+  const showErrorSpy = jest.spyOn(action.middleware, 'showError');
+  await action.fetchItem();
+  expect(action.api.fetchItem).toHaveBeenCalled();
+  expect(action.reducer.saveItem).toHaveBeenCalledWith(successMockData.data);
+  expect(showErrorSpy).toHaveBeenCalledWith(errorMockData.msg);
+});
+it('fetchItem-error', () => {
+  // ...
+});
+```
+
 ## action.ts
 
 ### 作用
@@ -97,6 +181,40 @@ class ListView<M extends Model> extends RListPage<ListProps<M>, ListState<M>> {
 }
 ```
 
+## router.ts
+
+定义模块内部页面路由匹配规则
+
+### 基本代码结构
+
+```js
+// 通常普通 CRUD 的路由模板为
+function routes(props: RouteProps): Array<RouteProps> {
+  const path: any = props.path;
+  return [
+    {
+      // 指定匹配路径
+      path: computePath(path, ''),
+      // 对应路径所匹配的 View
+      component: Containers.ListContainer
+    },
+    {
+      path: computePath(path, 'add'),
+      // mode 决定新增/编辑页面以模态框 or 新页面展示
+      // @ts-ignore
+      mode: 'modal',
+      component: Containers.FormContainer
+    },
+    {
+      path: computePath(path, ':id/edit'),
+      // @ts-ignore
+      mode: 'modal',
+      component: Containers.FormContainer
+    }
+  ];
+}
+```
+
 ## reducer.ts
 
 定义持久层 redux 的 reducer。可以采用 OOP 的形式创建 Reducer 类。与原始的 reducer 需要针对每个`case`返回一个`全新且完整的`的 state 不同，采用 OOP 设计实现的 Reducer 类可以以对象方法的形式调用 reducer，并且每个 reducer 只返回它所修改的那部分数据（完整的 state 由`@mcfed/core`类库提供的 proxy 返回）。
@@ -137,35 +255,10 @@ class CarReducer implements ICarReducer {
 
 借由依赖注入及访问修饰符带来的便利性，Action 实例可以直接通过`this`获取到 reducer 类的实例并调用其方法来触发一个`dispatch`操作（dispatch 由`@mcfed/core`类库提供的 proxy 触发）
 
-## api.ts
-
-定义 ajax 请求的接口
-
-### 基本代码结构
-
-```ts
-import {FetchUtils} from '@mcfed/utils'; // 用于发起ajax请求的工具或引擎，非必要
-
-import {IApi} from './interface'; // 获取api的接口声明，非必要
-
-const API_PREFIX = ''; // 请求的公共地址前缀，非必要
-export default class Api implements IApi {
-  // 每个方法对应一种请求场景
-  fetchList(params: any) {
-    return FetchUtils.fetchList(`${API_PREFIX}/api_prefix`, {
-      body: params
-    });
-  }
-}
-```
-
-### 如何在 Action 中使用
-
-借由依赖注入及访问修饰符带来的便利性，Action 实例可以直接通过`this`获取到 api 类的实例并调用其方法来发起一个 ajax 请求
 
 ## model.ts
 
-定义本模块的持久层数据模型，包括含有的字段、字段的来源（计算值）等
+定义本模块的持久层数据模型，包括含有的字段、字段的来源（计算值）等，持久数据示例：查询结果列表，单条结果的详情数据（用于编辑回填数据，详情展示）
 
 ### 基本代码结构
 

@@ -260,7 +260,7 @@ const source = [
 |  gutter   |  栅格间隔  |  number  |  20  |
 |  filterSubmitHandler  |  filterSubmit 查询事件的 handler  |  Function(values: any)  |    |
 |  defaultParams  |  缺省参数  |  object  |  {}  |
-|  showSearchButton  |  是否显示查询按钮  |  number  |  false  |
+|  showSearchButton  |  是否显示查询按钮  |  boolean  |  false  |
 |  columns  |  栅格占位格数  |  number  |  4  |
 |  autoSubmitForm  |  是否自动触发提交，为 true 时 在 onValuesChange 时触发查询，fasle 时不主动触发  |  boolean  |  true  |
 |  locale  |  国际化  |  object  |    |

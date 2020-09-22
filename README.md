@@ -29,17 +29,13 @@
 
 1. 利用 template 命令行生成新的功能模块代码
 
-- 在 platform 根目录下运行命令行 `yarn template test template`
+- 在 platform 根目录下运行命令行 `yarn template [模块名称] [模板路径(基于项目根目录)]`
 
   ```shell
   yarn template test template
   ```
 
 - 生成成功会有如下显示
-
-  ```shell
-  yarn template test template
-  ```
 
   ```logs
   yarn run v1.13.0
@@ -49,7 +45,7 @@
   ✨  Done in 0.73s.
   ```
 
-2. 对新生成的模块进行构建打包 build
+1. 对新生成的模块进行构建打包 build
 
 - 进入 packages/test/目录对 test 进行打包，执行命令行 `yarn build`
 
