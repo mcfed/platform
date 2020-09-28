@@ -1,0 +1,89 @@
+{
+  "name": "@platform/test",
+  "version": "1.0.0",
+  "private": false,
+  "module": "dist/cjs/index.js",
+  "main": "dist/umd/index.js",
+  "typescript": "./src",
+  "graphql": "./server",
+  "types": "dist/cjs/index.d.ts",
+  "scripts": {
+    "analyz": "source-map-explorer build/static/js/*.*",
+    "start": "react-app-rewired start",
+    "build:web": "react-app-rewired build",
+    "build": "npm run build:cjs",
+    "build:cjs": "tsc --noEmit false --module commonjs --outDir dist/cjs",
+    "build:umd": "tsc --noEmit false --resolveJsonModule false  --module umd --outDir dist/umd",
+    "test": "react-app-rewired test ",
+    "coverage": "cross-env CI=true react-scripts test --coverage"
+  },
+  "dependencies": {
+    "@mcfed/components": "^0.3.0-beta2",
+    "@mcfed/core": "^0.5.0-beta2",
+    "@mcfed/crud": "^0.4.3-beta",
+    "@mcfed/utils": "^0.2.2",
+    "antd": "^3.9.3",
+    "cross-env": "4.0.0",
+    "history": "^4.10.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-hot-loader": "^4.12.21",
+    "react-redux": "^7.1",
+    "react-router": "^5.2.0",
+    "react-router-config": "^5.1.1",
+    "react-router-dom": "^5.2.0",
+    "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
+    "typescript": "^3.8.3"
+  },
+  "devDependencies": {
+    "@mcfed/cra": "0.2.0",
+    "@testing-library/react-hooks": "^3.3.0",
+    "@types/classnames": "^2.2.10",
+    "@types/enzyme": "^3.10.5",
+    "@types/jest": "24.0.23",
+    "@types/js-base64": "^2.3.1",
+    "@types/node": "12.12.14",
+    "@types/react": "^16.9.34",
+    "@types/react-dom": "16.9.4",
+    "@types/react-redux": "^7.1.8",
+    "@types/react-router": "^5.1.7",
+    "@types/react-router-config": "^5.0.1",
+    "@types/react-router-dom": "^5.1.5",
+    "@types/redux-logger": "^3.0.7",
+    "babel-plugin-import": "^1.13.0",
+    "babel-plugin-transform-typescript-metadata": "^0.3.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.4.4",
+    "hard-source-webpack-plugin": "^0.13.1",
+    "husky": "^2.7.0",
+    "jest-fetch-mock": "^3.0.3",
+    "lint-staged": "8.0.0",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^1.11.1",
+    "react-app-rewired": "^2.1.6",
+    "source-map-explorer": "^2.4.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "files": [
+    "dist",
+    "build",
+    "README.md"
+  ],
+  "config": {
+    "API_SERVER": "/usercenter",
+    "MOCK_SERVER": "http://192.168.200.178:3000/mock/173"
+  }
+}

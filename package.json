@@ -5,6 +5,7 @@
   "workspaces": [
     "packages/*"
   ],
+  "useWorkspaces": true,
   "scripts": {
     "start": "lerna exec --scope @platform/app -- npm start",
     "build:type": "lerna run build",
@@ -45,6 +46,11 @@
   },
   "dependencies": {
     "@commitlint/config-conventional": "^9.1.2",
-    "babel-plugin-import": "^1.13.0"
+    "antd": "^4.6.6",
+    "babel-plugin-import": "^1.13.0",
+    "react-redux": "^7.2.1",
+    "styled-components": "^5.2.0",
+    "ttypescript": "^1.5.12",
+    "typescript-styled-plugin": "^0.15.0"
   }
 }

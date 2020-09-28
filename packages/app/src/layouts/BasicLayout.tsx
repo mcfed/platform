@@ -1,7 +1,7 @@
 import React, {useState, useMemo} from 'react';
 import {connect} from 'react-redux';
 import {Selector, Container} from '@mcfed/core';
-import {Icon, Menu} from 'antd';
+import {Menu} from 'antd';
 import {Link, NavLink} from 'react-router-dom';
 import {useLocation, useHistory} from 'react-router';
 import {useTranslation} from 'react-i18next';
@@ -79,7 +79,6 @@ export function BasicLayout(props: any) {
             pathname: computePath(parent?.path, currentRoute.path),
             state: {refresh: true}
           }}>
-          {currentRoute.icon && <Icon type={currentRoute.icon} />}
           <span>{t(currentRoute.name)}</span>
         </NavLink>
       </Menu.Item>
@@ -99,7 +98,6 @@ export function BasicLayout(props: any) {
           collapsed ? setIcon('menu-unfold') : setIcon('menu-fold');
         }}
         onSelect={onNavChange}
-        trigger={<Icon type={icon} />}
       />
       <AppLayout>
         <Header className={styles['basic-layout-header']}>

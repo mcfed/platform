@@ -64,10 +64,22 @@
     /* Experimental Options */
     "experimentalDecorators": true /* Enables experimental support for ES7 decorators. */,
     // "emitDecoratorMetadata": true,         /* Enables experimental support for emitting type metadata for decorators. */
-
+    "noLib": false,
     /* Advanced Options */
     "skipLibCheck": true /* Skip type checking of declaration files. */,
-    "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */
+    "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */,
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "customMatcher": "\\.module\\.(sa|sc|c)ss$",
+          "camelCase": "dashes"
+        }
+      }
+    ]
   },
-  "include": ["src"]
+  // "files": [
+  //   "styles/style.module.css"
+  // ],
+  "include": ["src", "styles.d.ts"]
 }

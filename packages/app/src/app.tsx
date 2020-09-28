@@ -20,20 +20,23 @@ if (process.env.NODE_ENV === 'development') {
   global.API_PREFIX = '/usercenter';
 }
 
+const LOGIN_TYPE = 'GLOBAL/LOGIN_ACTION';
+//@ts-ignore
+global.LOGIN_TYPE = LOGIN_TYPE;
+console.log(store.getStore());
+
 const App = () => (
   <Provider store={store.getStore()}>
     <PersistGate loading={null} persistor={persistor}>
-      <ConnectedRouter history={history}>
-        <AppLocale>
-          <Router>
-            <Switch>
-              <Route path='/portal' component={ProtalLayout} />
-              <Redirect exact from='/' to='/dashboard'></Redirect>
-              <Route path='/' component={BasicLayout} />
-            </Switch>
-          </Router>
-        </AppLocale>
-      </ConnectedRouter>
+      <AppLocale>
+        <Router>
+          <Switch>
+            <Route path='/portal' component={ProtalLayout} />
+            <Redirect exact from='/' to='/dashboard'></Redirect>
+            <Route path='/' component={BasicLayout} />
+          </Switch>
+        </Router>
+      </AppLocale>
     </PersistGate>
   </Provider>
 );

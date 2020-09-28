@@ -1,7 +1,6 @@
 import React, {ReactNode, ComponentClass, Fragment} from 'react';
-import {Menu, Dropdown, Avatar, Icon} from 'antd';
+import {Menu, Dropdown, Avatar} from 'antd';
 
-import {ClickParam} from 'antd/lib/menu';
 import {BasicProps} from 'antd/lib/layout/layout';
 import './style.css';
 import SubMenu from 'antd/lib/menu/SubMenu';
@@ -30,7 +29,6 @@ export class GlobalHeader extends React.Component<GlobalHeaderProps> {
           key='sub1'
           title={
             <span>
-              <Icon type='mail' />
               <span>切换语言</span>
             </span>
           }>
@@ -43,7 +41,7 @@ export class GlobalHeader extends React.Component<GlobalHeaderProps> {
     );
   }
 
-  handleMenuClick({key}: ClickParam) {
+  handleMenuClick({key}: any) {
     const {onMenuSelect} = this.props;
     if (typeof onMenuSelect === 'function') onMenuSelect(key as MenuKeyEnum);
   }

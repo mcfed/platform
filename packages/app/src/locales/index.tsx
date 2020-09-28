@@ -1,5 +1,5 @@
 import React, {Component, ReactElement} from 'react';
-import {LocaleProvider} from 'antd';
+import {ConfigProvider} from 'antd';
 import moment from 'moment';
 import zh_CN_antd from 'antd/lib/locale-provider/zh_CN';
 import zh_TW_antd from 'antd/lib/locale-provider/zh_TW';
@@ -51,9 +51,9 @@ export class AppLocale extends Component<LocaleProp> {
     const {appReducer, children} = this.props;
     const lang = appReducer.config.lang || navigator.language;
     return (
-      <LocaleProvider locale={antdLocal[lang]}>
+      <ConfigProvider locale={antdLocal[lang]}>
         <I18nextProvider i18n={i18n}>{children}</I18nextProvider>
-      </LocaleProvider>
+      </ConfigProvider>
     );
   }
 }

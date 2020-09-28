@@ -46,12 +46,13 @@ module.exports = {
       }
     })(config);
     addWebpackResolve({
-      mainFields: ['typescript', 'browser', 'module', 'main']
+      mainFields: ['browser', 'main', 'module']
     })(config);
-    // addWebpackAlias({
-    //   'react':path.resolve(__dirname,"../../node_modules/react"),
-    //   'react-dom':path.resolve(__dirname,"../../node_modules/react-dom")
-    // })
+    addWebpackAlias({
+      antd: path.resolve(__dirname, '../../node_modules/antd'),
+      react: path.resolve(__dirname, '../../node_modules/react'),
+      'react-dom': path.resolve(__dirname, '../../node_modules/react-dom')
+    });
     customKeepFunctionNameConfig()(config);
     addWebpackPlugin(new HardSourceWebpackPlugin())(config);
     return config;
@@ -87,9 +88,10 @@ module.exports = {
   devServer: overrideDevServer(
     customProxyConfig({
       '/usercenter': {
-        target: 'http://192.168.238.19:8020',
+        target: 'https://192.168.238.19:8020',
         changeOrigin: true,
-        pathRewrite: {'^/usercenter': ''}
+        pathRewrite: {'^/usercenter': ''},
+        secure: false
       }
     })
   )

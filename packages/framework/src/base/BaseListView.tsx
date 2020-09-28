@@ -1,7 +1,9 @@
 import React from 'react';
 import {IRListState, IParams, PK, RListPage} from '@mcfed/crud';
 import {BaseListViewProps} from './interface';
+//@ts-ignore
 import {TableProps, PaginationConfig} from 'antd/lib/table';
+// import styles from '../styles/style.module.css'
 
 export default abstract class BaseListView<
   P extends BaseListViewProps,
@@ -22,6 +24,9 @@ export default abstract class BaseListView<
     );
     this.handleFilter(object);
   }
+  renderSearchBar() {
+    return <div>sdfsfs</div>;
+  }
   mergeTableConfig(config: TableProps<any>) {
     return Object.assign(
       {
@@ -34,9 +39,6 @@ export default abstract class BaseListView<
           size: 'small',
           showTotal: (total: number, range: number[]) =>
             `共 ${total} 条，当前第 ${range[0]} 至 第 ${range[1]} 条`
-        },
-        style: {
-          width: '100%'
         }
       },
       config,

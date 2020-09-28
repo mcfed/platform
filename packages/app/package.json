@@ -13,7 +13,7 @@
     "@mcfed/layout": "^0.0.1",
     "@mcfed/utils": "^0.2.1",
     "@testing-library/react-hooks": "^3.4.1",
-    "antd": "^3.9.3",
+    "antd": "^4.6.6",
     "antd-icon-reduce-plugin": "^1.1.1",
     "connected-react-router": "^5.0.0",
     "cross-env": "4.0.0",
@@ -97,5 +97,9 @@
   "config": {
     "API_SERVER": "/",
     "MOCK_SERVER": "/mock"
+  },
+  "resolutions": {
+    "**/react": "16.13.1",
+    "**/react-dom": "16.13.1"
   }
 }
