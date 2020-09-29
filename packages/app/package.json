@@ -95,7 +95,8 @@
     "README.md"
   ],
   "config": {
-    "API_SERVER": "/",
+    "API_SERVER": "/usercenter",
+    "GRAPHQL_API_SERVER": "/graphql",
     "MOCK_SERVER": "/mock"
   }
 }

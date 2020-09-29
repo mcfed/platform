@@ -37,4 +37,10 @@ export interface IReducerState {
   };
 }
 
+// graphql 类型
+export interface PagernateQuery {
+  page?: number
+  size: number
+}
+
 // TODO: 描述各action、reducer、api需要的参数类型

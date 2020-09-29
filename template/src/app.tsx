@@ -13,6 +13,7 @@ import * as Module from '.';
 const history = createHashHistory()
 
 global.API_PREFIX = process.env.npm_package_config_API_SERVER as string;
+global.GRAPHQL_API_PREFIX = process.env.npm_package_config_GRAPHQL_API_SERVER as string;
 
 const App = () => (
   <Provider store={store.getStore()}>

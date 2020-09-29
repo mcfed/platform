@@ -10,14 +10,17 @@ import AppLocale from './locales';
 import BasicLayout from './layouts/BasicLayout';
 import ProtalLayout from './layouts/PortalLayout';
 import store, {history, persistor} from './store';
+import * as packageData from '../package.json';
 import './app.less';
 // import 'antd/dist/antd.css';
 // import 'core-js/stable';
 import {ConnectedRouter} from 'connected-react-router';
 
 global.API_PREFIX = '';
+global.GRAPHQL_API_PREFIX = '';
 if (process.env.NODE_ENV === 'development') {
-  global.API_PREFIX = '/usercenter';
+  global.API_PREFIX = packageData.config.API_SERVER;
+  global.GRAPHQL_API_PREFIX = packageData.config.GRAPHQL_API_SERVER;
 }
 
 const App = () => (

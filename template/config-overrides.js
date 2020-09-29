@@ -3,6 +3,7 @@ const {
   addBabelPlugin,
   addWebpackPlugin,
   addWebpackResolve,
+  customEntryConfig,
   customBuildConfig,
   customBabelLoaderInclude,
   customKeepFunctionNameConfig

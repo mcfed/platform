@@ -87,9 +87,15 @@ module.exports = {
   devServer: overrideDevServer(
     customProxyConfig({
       '/usercenter': {
-        target: 'http://192.168.238.19:8020',
+        // target: 'http://192.168.238.19:8020',
+        target: 'http://192.168.200.178:3000/mock/37',
         changeOrigin: true,
         pathRewrite: {'^/usercenter': ''}
+      },
+      '/graphql': {
+        target: 'http://127.0.0.1:3003',
+        changeOrigin: true,
+        pathRewrite: {'^/graphql': ''}
       }
     })
   )

@@ -28,6 +28,7 @@ export const routes: RouterConfig<any, string> = [
     path: 'dashboard',
     icon: 'team',
     name: 'MENU.DASHBOARD',
-    component: () => <div>@platfrom</div>
+    component: () => <div>1111</div>
+    // component: loadableMoudle(import('@platform/demo5'))
   }
 ];
