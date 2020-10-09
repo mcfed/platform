@@ -19,7 +19,7 @@ const external = [
 ]
 
 export default {
-    input: 'graphqlts/index.ts',
+    input: 'index.ts',
     output: {
       file: 'dist/bundle.js',
       format: 'cjs',

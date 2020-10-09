@@ -2,7 +2,7 @@ import { GraphQLInt } from 'graphql';
 import {Resolver, Query, Mutation, Arg} from 'type-graphql';
 import { DemoData, InputDemo } from './type';
 import { getReturnType } from './utils';
-import Api from '../api';
+import Api from './api';
 
 export const resolverFunctionNameTypes = {
   demo: 'demo',

@@ -5,7 +5,7 @@
   "module": "dist/cjs/index.js",
   "main": "dist/umd/index.js",
   "typescript": "./src",
-  "graphql": "dist/cjs/graphqlts/resolver.js",
+  "graphql": "dist/cjs/resolver.js",
   "types": "dist/cjs/index.d.ts",
   "scripts": {
     "analyz": "source-map-explorer build/static/js/*.*",
