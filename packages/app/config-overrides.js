@@ -46,12 +46,18 @@ module.exports = {
       }
     })(config);
     addWebpackResolve({
-      mainFields: ['typescript', 'browser', 'module', 'main']
+      mainFields: ['browser', 'main', 'module']
     })(config);
-    // addWebpackAlias({
-    //   'react':path.resolve(__dirname,"../../node_modules/react"),
-    //   'react-dom':path.resolve(__dirname,"../../node_modules/react-dom")
-    // })
+    addWebpackAlias({
+      react: path.resolve(__dirname, '../../node_modules/react'),
+      'react-dom': path.resolve(__dirname, '../../node_modules/react-dom'),
+      'redux-orm': path.resolve(
+        __dirname,
+        '../../node_modules/@mcfed/core/node_modules/redux-orm'
+      ),
+      '@mcfed/core': path.resolve(__dirname, '../../node_modules/@mcfed/core')
+      // 'react-dom':path.resolve(__dirname,"../../node_modules/react-dom")
+    });
     customKeepFunctionNameConfig()(config);
     addWebpackPlugin(new HardSourceWebpackPlugin())(config);
     return config;
@@ -87,9 +93,10 @@ module.exports = {
   devServer: overrideDevServer(
     customProxyConfig({
       '/usercenter': {
-        target: 'http://192.168.238.19:8020',
+        target: 'https://192.168.238.19:8020',
         changeOrigin: true,
-        pathRewrite: {'^/usercenter': ''}
+        pathRewrite: {'^/usercenter': ''},
+        secure: false
       }
     })
   )

@@ -11,7 +11,7 @@ import BasicLayout from './layouts/BasicLayout';
 import ProtalLayout from './layouts/PortalLayout';
 import store, {history, persistor} from './store';
 import './app.less';
-// import 'antd/dist/antd.css';
+import 'antd/dist/antd.css';
 // import 'core-js/stable';
 import {ConnectedRouter} from 'connected-react-router';
 
@@ -19,6 +19,10 @@ global.API_PREFIX = '';
 if (process.env.NODE_ENV === 'development') {
   global.API_PREFIX = '/usercenter';
 }
+
+const LOGIN_TYPE = 'GLOBAL/LOGIN_ACTION';
+//@ts-ignore
+global.LOGIN_TYPE = LOGIN_TYPE;
 
 const App = () => (
   <Provider store={store.getStore()}>

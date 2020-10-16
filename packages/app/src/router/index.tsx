@@ -3,6 +3,8 @@ import Loadable from 'react-loadable';
 import {RouterConfig} from '../interface';
 import store from '../store';
 import {renderModuleRoutes} from '../components/render-module-routes';
+// @ts-ignore
+import {LoginForm} from '@user-center/login';
 
 export * from './AppRouter';
 
@@ -30,4 +32,16 @@ export const routes: RouterConfig<any, string> = [
     name: 'MENU.DASHBOARD',
     component: () => <div>@platfrom</div>
   }
+  // {
+  //   path: 'logincontainer',
+  //   icon: 'team',
+  //   name: 'MENU.LOGINCONTAINER',
+  //   component: loadableMoudle(import('@user-center/login'))
+  // },
+  // {
+  //   path: 'loginview',
+  //   icon: 'team',
+  //   name: 'MENU.LOGINVIEW',
+  //   component: ()=> <LoginForm loginConfig={{}}></LoginForm>
+  // }
 ];
