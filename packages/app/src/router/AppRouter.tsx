@@ -1,7 +1,7 @@
 import React, {useCallback, useMemo, FunctionComponent} from 'react';
-import {Switch, Route, useLocation, Redirect} from 'react-router';
+import {Switch, Route, useLocation} from 'react-router';
 import {RouterConfig} from '../interface';
-import { computePath } from '../utils';
+import {computePath} from '../utils';
 
 interface AppRouterProps {
   routerConfig: RouterConfig;
@@ -41,11 +41,11 @@ export function AppRouter(props: AppRouterProps) {
   return (
     <Switch>
       {routes}
-      <Route
+      {/* <Route
         path={computePath(parentPath || '', '404')}
         component={() => <div>404</div>}
-      />
-      <Redirect to={computePath(parentPath || '', '404')} />
+      /> */}
+      {/* <Redirect to={computePath(parentPath || '', '404')} /> */}
     </Switch>
   );
 }

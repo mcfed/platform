@@ -10,8 +10,8 @@ import storage from 'redux-persist/lib/storage';
 // import {history} from '../router'
 import {createRouter} from './redux-router';
 import {createHashHistory} from 'history';
-import {fetchingMiddleware} from '@mcfed/core/dist/middleware';
-import {upgradeConfig} from '@mcfed/core/dist/middleware/redux-module';
+// import {fetchingMiddleware} from '@mcfed/core/dist/middleware';
+// import {upgradeConfig} from '@mcfed/core/dist/middleware/redux-module';
 
 const {passportMiddleware} = Middleware;
 

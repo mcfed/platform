@@ -1,14 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import { IntlProvider } from "react-intl";
 import {HashRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
-import {AppContainer} from 'react-hot-loader';
 
 import AppLocale from './locales';
 import BasicLayout from './layouts/BasicLayout';
-import ProtalLayout from './layouts/PortalLayout';
 import store, {history, persistor} from './store';
 import './app.less';
 // import 'antd/dist/antd.css';
@@ -27,9 +24,8 @@ const App = () => (
         <AppLocale>
           <Router>
             <Switch>
-              <Route path='/portal' component={ProtalLayout} />
-              <Redirect exact from='/' to='/dashboard'></Redirect>
               <Route path='/' component={BasicLayout} />
+              <Redirect exact from='/' to='/dashboard'></Redirect>
             </Switch>
           </Router>
         </AppLocale>
@@ -39,14 +35,16 @@ const App = () => (
 );
 
 const render = (Component: any) => {
-  ReactDOM.render(
-    <AppContainer>
-      <App />
-    </AppContainer>,
-    document.getElementById('root')
-  );
+  ReactDOM.render(<App />, document.getElementById('root'));
 };
 
 render(App);
+//@ts-ignore
+if (module.hot) {
+  //@ts-ignore
+  module.hot.accept(() => {
+    render(App);
+  });
+}
 
 // serviceWorker.unregister();
