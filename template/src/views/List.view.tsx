@@ -1,5 +1,4 @@
 import React, {ReactNode} from 'react';
-import {Input, Select} from 'antd';
 import {
   ButtonGroups,
   HeadSearchBar,
@@ -11,6 +10,9 @@ import {IRListState, IParams, PK} from '@mcfed/crud';
 import {TableProps} from 'antd/lib/table/interface';
 import {BaseListView, BaseListViewProps} from '@user-center/framework';
 import {IAction, IReducerState, IModel} from '../interface';
+{@#importData@}
+  {@&text@}
+{@/importData@}
 
 const Button = ButtonGroups.CustomButton;
 export interface ListProps<M> extends BaseListViewProps {
@@ -69,9 +71,11 @@ export default class ListView<M extends IModel> extends BaseListView<
       <HeadSearchBar
         showSearchButton={false}
         filterSubmitHandler={this.handleFilter.bind(this)}>
-        <FormItem name='serverName'>
-          <Input defaultValue={query.id} />
-        </FormItem>
+        {@#transformTypetoComponentData.listData@}
+          <FormItem name={'{@name@}'}>
+            {@&commponent@}
+          </FormItem>
+        {@/transformTypetoComponentData.listData@}
       </HeadSearchBar>
     );
   }
@@ -85,12 +89,11 @@ export default class ListView<M extends IModel> extends BaseListView<
         handleClick={(actionType: string) =>
           this.handlerMenu(selectedRowKeys, actionType)
         }>
-        <Button actionkey='add' type='primary'>
-          {locale('GLOBAL.NEW')}
-        </Button>
-        <Button actionkey='delete' loading={spins(actions.fetchDelete)}>
-          {locale('GLOBAL.REMOVE')}
-        </Button>
+        {@#buttonData@}
+          <Button actionkey='{@actionKey@}' type='{@type@}'>
+            {@name@}
+          </Button>
+        {@/buttonData@}
       </ButtonGroups>
     );
   }
@@ -113,19 +116,16 @@ export default class ListView<M extends IModel> extends BaseListView<
       rowKey: 'id',
       dataSource: items,
       columns: [
-        {
-          {@#columns@}
-            title: locale('{@name@}.label'),
-            key: "{@name@}",
-            dataIndex: "{@name@}",
-          }, {
-          {@/columns@}
-          title: locale('GLOBAL.COLUMNS.OPTIONS'),
-          key: 'options',
-          dataIndex: 'options',
-          width: 190,
-          render: this.renderTableButtonGroups.bind(this)
-        }
+        {@#arrayItemToStringData.tableData@}
+            {@&.@},
+        {@/arrayItemToStringData.tableData@}
+          {
+              title: locale('GLOBAL.COLUMNS.OPTIONS'),
+              key: 'options',
+              dataIndex: 'options',
+              width: 190,
+              render: this.renderTableButtonGroups.bind(this)
+          }
       ]
     };
 

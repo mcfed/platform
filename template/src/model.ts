@@ -15,10 +15,10 @@ export default class  {@namespace@} extends BaseModel implements IModel {
 
   @pk()
   id!: number;
-  {@#columns@}
+  {@#tableData@}
   @attr()
-  {@name@}!: string;
-  {@/columns@}
+  {@dataIndex@}?: {@dataType@};
+  {@/tableData@}
 
   getName() {}
 }

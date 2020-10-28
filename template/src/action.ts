@@ -2,7 +2,7 @@ import {InjectFactory, Middleware, Decorator} from '@mcfed/core';
 import {PK} from '@mcfed/crud';
 import {BaseAction} from '@user-center/framework';
 import {IAction} from './interface';
-import Api from './api.graphql';
+import Api from './api';
 import Reducer from './reducer';
 
 const {MiddlewareFactory} = Middleware;

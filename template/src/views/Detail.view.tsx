@@ -45,7 +45,7 @@ export default class DetailView<M extends IModel> extends BaseFormView<
   }
   render(): ReactNode {
     const {item, locale} = this.props;
-    const source = [
+    const source:any = [
       {@#columns@}
       {
         label: locale('{@name@}.label'),

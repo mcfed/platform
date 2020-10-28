@@ -19,6 +19,7 @@ function routes(props: RouteProps): Array<RouteProps> {
     },
     {
       path: [path, ':id'].join("/"),
+      exact: true,
       component: Containers.DetailContainer
     }
   ];
