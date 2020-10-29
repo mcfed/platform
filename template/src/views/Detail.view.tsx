@@ -46,12 +46,12 @@ export default class DetailView<M extends IModel> extends BaseFormView<
   render(): ReactNode {
     const {item, locale} = this.props;
     const source:any = [
-      {@#columns@}
+      {@#tableData@}
       {
-        label: locale('{@name@}.label'),
-        value: item.{@name@}
+        label: locale('{@dataIndex@}.label'),
+        value: item.{@dataIndex@}
       },
-      {@/columns@}
+      {@/tableData@}
     ];
 
     return (

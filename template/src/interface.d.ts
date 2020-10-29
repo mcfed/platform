@@ -8,9 +8,9 @@ declare namespace NodeJS {
 
 export interface IModel {
   id: number;
-  {@#columns@}
-    {@name@}?: string;
-  {@/columns@}
+  {@#tableData@}
+    {@dataIndex@}?: {@dataType@};
+  {@/tableData@}
 }
 
 export interface IAction {

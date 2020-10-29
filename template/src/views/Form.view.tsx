@@ -55,11 +55,11 @@ export default class FormView<M extends IModel> extends BaseFormView<
           <FormItem name='id'>
             <Input type='hidden' defaultValue={item.id} />
           </FormItem>
-          {@#columns@}
-          <FormItem name='{@name@}' label='{@name@}'>
-            <Input defaultValue={item.{@name@}} />
+          {@#tableData@}
+          <FormItem name='{@dataIndex@}' label='{@dataIndex@}'>
+            <Input defaultValue={item.{@dataIndex@}} />
           </FormItem>
-          {@/columns@}
+          {@/tableData@}
         </BaseForm>
       </Panel>
     );

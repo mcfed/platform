@@ -8,6 +8,12 @@ export default class Api implements IApi {
       headers
     });
   }
+  async fetchItem(params:any = {}, headers = {}):Promise<any> {
+    return FetchUtils.fetchGraphql(`${API_PREFIX}/:id`, {
+      body: params,
+      headers
+    });
+  }
   async fetchUpdate(params:any = {}, headers = {}):Promise<any> {
     return FetchUtils.fetchPost(`${API_PREFIX}/update`, {
       body: params,
