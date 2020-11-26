@@ -2,7 +2,6 @@ import {ILocker, IScreenSaver} from './interface';
 import confirm from './customConfirm';
 import {BaseForm} from '@mcfed/components';
 import React from 'react';
-import Form from 'antd/lib/form';
 import {WrappedFormUtils} from 'antd/lib/form/Form';
 import {message} from 'antd';
 
@@ -24,48 +23,59 @@ export default class ScreenSaver<V> implements IScreenSaver {
     this.locker = option.locker;
     this.duration = option.duration;
   }
-
-  saveFormRef(ref: any) {
+  /**
+   *
+   * @param ref form引用
+   */
+  protected saveFormRef(ref: any) {
     this.form = ref;
   }
+  /**
+   * 创建模态框
+   * @param callback
+   */
+  private createModal(callback: Function) {
+    return confirm({
+      title: 'locker',
+      okText: 'unlock',
+      onOk: (close, b) => {
+        // const values = {a:1}
+        this.form?.validateFieldsAndScroll(
+          {force: true},
+          (err: any, values: any) => {
+            if (err) {
+              return;
+            }
+            if (this.locker.handlerOK(values)) {
+              this.unLockScreen(callback);
+              close();
+            } else {
+              message.error('解锁验证失败');
+            }
+          }
+        );
+      },
+      onCancel: () => {
+        alert('logout');
+      },
+      cancelText: 'logout',
+      content: React.createElement(
+        BaseForm,
+        {
+          ref: this.saveFormRef.bind(this)
+        },
+        this.locker.render()
+      )
+    });
+  }
+
   /**
    * 锁定屏幕
    */
   public lockScreen(callback: Function) {
     const self = this;
     if (!this.confirm) {
-      this.confirm = confirm({
-        title: 'locker',
-        okText: 'unlock',
-        onOk: (close, b) => {
-          // const values = {a:1}
-          this.form?.validateFieldsAndScroll(
-            {force: true},
-            (err: any, values: any) => {
-              if (err) {
-                return;
-              }
-              if (this.locker.handlerOK(values)) {
-                this.unLockScreen(callback);
-                close();
-              } else {
-                message.error('解锁验证失败');
-              }
-            }
-          );
-        },
-        onCancel: () => {
-          alert('logout');
-        },
-        cancelText: 'logout',
-        content: React.createElement(
-          BaseForm,
-          {
-            ref: this.saveFormRef.bind(this)
-          },
-          this.locker.render()
-        )
-      });
+      this.confirm = this.createModal(callback);
     }
   }
 
@@ -83,7 +93,6 @@ export default class ScreenSaver<V> implements IScreenSaver {
     var self = this;
     clearTimeout(this.timeout);
     //@ts-ignore
-
     this.timeout = setTimeout(function() {
       self.lockScreen(callback);
     }, this.duration);
