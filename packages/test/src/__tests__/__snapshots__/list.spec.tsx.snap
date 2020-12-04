@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`快照测试 详情页全页快照 1`] = `
+<Panel
+  className=""
+  confirmLoading={false}
+  footer={false}
+  loading={false}
+  onCancel={[Function]}
+  onOk={[Function]}
+  prefixCls="ant-panel"
+  title=""
+>
+  <AdvancedSearchForm
+    autoSubmitForm={true}
+    columns={4}
+    defaultParams={Object {}}
+    filterSubmitHandler={[Function]}
+    gutter={20}
+    layout="horizontal"
+    showSearchButton={false}
+  >
+    <FormItemRender
+      name="serverName"
+    >
+      <Input
+        type="text"
+      />
+    </FormItemRender>
+  </AdvancedSearchForm>
+  <ButtonGroups
+    handleClick={[Function]}
+    mode="ButtonGroup"
+    showSize={5}
+    viewMode="text"
+  >
+    <CustomButton
+      actionkey="add"
+      type="primary"
+    >
+      GLOBAL.NEW
+    </CustomButton>
+    <CustomButton
+      actionkey="delete"
+    >
+      GLOBAL.REMOVE
+    </CustomButton>
+  </ButtonGroups>
+  <DataTable
+    columns={
+      Array [
+        Object {
+          "dataIndex": "name",
+          "key": "name",
+          "title": "label",
+        },
+        Object {
+          "dataIndex": "title",
+          "key": "title",
+          "title": "title",
+        },
+        Object {
+          "dataIndex": "options",
+          "key": "options",
+          "render": [Function],
+          "title": "GLOBAL.COLUMNS.OPTIONS",
+          "width": 190,
+        },
+      ]
+    }
+    dataSource={Array []}
+    onChange={[Function]}
+    page={Object {}}
+    pagination={
+      Object {
+        "pageSizeOptions": Array [
+          "10",
+          "20",
+          "50",
+          "100",
+        ],
+        "showQuickJumper": true,
+        "showSizeChanger": true,
+        "showTotal": [Function],
+        "size": "small",
+      }
+    }
+    prefixCls="ant-table"
+    rowKey="id"
+    rowSelection={null}
+    showConfig={false}
+    size="middle"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  />
+</Panel>
+`;

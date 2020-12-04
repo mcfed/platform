@@ -10,7 +10,7 @@ import AppLocale from './locales';
 import BasicLayout from './layouts/BasicLayout';
 import ProtalLayout from './layouts/PortalLayout';
 import store, {history, persistor} from './store';
-import {routes,routerConfig} from './router';
+import {routes,routeConfig} from './router';
 import {ReactRouter, SPARouter} from '@mcfed/router';
 import './app.less';
 // import 'antd/dist/antd.css';
@@ -21,7 +21,7 @@ global.API_PREFIX = '';
 if (process.env.NODE_ENV === 'development') {
   global.API_PREFIX = '/usercenter';
 }
-export const router = new SPARouter(history, routerConfig);
+export const router = new SPARouter(history, routeConfig);
 const App = () => (
   <Provider store={store.getStore()}>
     <PersistGate loading={null} persistor={persistor}>

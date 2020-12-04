@@ -55,6 +55,7 @@ export function BasicLayout(props: any) {
   const {router} = useContext(RouterProvider);
   const {auths, user} = appReducer;
   const userId = user?.id;
+  //@ts-ignore
   const activeRoutes = useMemo(() => filterActiveRoutes(routes, auths), [
     auths
   ]);
@@ -75,14 +76,11 @@ export function BasicLayout(props: any) {
   function renderMenuItem(currentRoute: RouteItem, parent: RouteItem) {
     return (
       <Menu.Item key={currentRoute.key || currentRoute.path}>
-        <div
-          onClick={() => {
-            console.log(router);
-            router.push(computePath(parent?.path, currentRoute.path));
-          }}>
+        <NavLink
+          to={computePath(parent?.path, currentRoute.path)}>
           {currentRoute.icon && <Icon type={currentRoute.icon} />}
           <span>{t(currentRoute.name)}</span>
-        </div>
+        </NavLink>
       </Menu.Item>
     );
   }

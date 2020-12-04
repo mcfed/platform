@@ -3,9 +3,9 @@ import Loadable from 'react-loadable';
 import {RouterConfig} from '../interface';
 import store from '../store';
 import {renderModuleRoutes} from '../components/render-module-routes';
-import {IRoute,IRoutes} from '@mcfed/router'
-import {router as spaRouter} from '../app'
-import * as Containers  from '@platform/routerTest/src/container'
+import { IRoute, IRoutes } from '@mcfed/router';
+import { container } from '@platform/test';
+
 export * from './AppRouter';
 
 /**
@@ -13,55 +13,69 @@ export * from './AppRouter';
  * @param importModule
  */
 function loadableMoudle(importModule: any) {
-  
-  // return Loadable({
-  //   loader: () =>
-  //     new Promise((resolve: any, rejects) => {
-  //       console.log(importModule)
-  //       store.importRouterModule(importModule).then(view => {
-  //         resolve((props: any) => renderModuleRoutes(view(props), false));
-  //       });
-  //     }),
-  //   //@ts-ignore
-  //   loading: () => 'loading'
-  // });
+  return Loadable({
+    loader: () =>
+      new Promise((resolve: any, rejects) => {
+        store.importRouterModule(importModule).then(view => {
+          resolve((props: any) => renderModuleRoutes(view(props), false));
+        });
+      }),
+    //@ts-ignore
+    loading: () => 'loading'
+  });
 }
 
-export const routes: RouterConfig<any, string> = [
+export const routes: IRoutes= [
   {
     path: 'dashboard',
     icon: 'team',
     name: 'MENU.DASHBOARD',
-    component: () => <div>@platfrom</div>,
+    component: () => <div>@platfrom</div>
   },
   {
-    path: 'routertest',
-    icon: 'team',
-    name: 'routerTest',
-    component: () => loadableMoudle(import('@platform/routerTest'))
+    path: "test",
+    icon: "team", 
+    name: "test", 
+    component: ()=><div>test</div>
+  },
+  {
+    path:'/testimport',
+    icon: "team", 
+    name:'testimport',
+    component:()=>loadableMoudle(import('@platform/test'))
   }
 ];
 
-export const routerConfig: IRoute = {
-  path: "",
-  children: [
+export const routeConfig: IRoute= {
+  path:'',
+  children:[
     {
-      path: "/dashboard", // optional, matches both "/posts" and "/posts/"
-      name: "app",
-      component: () => <div>@platfrom</div>,
+      path: '/dashboard',
+      name: 'MENU.DASHBOARD',
+      component: () => <div>@platfrom</div>
     },
     {
-      path: "",
-      name: "aaa",
-      children: [
-        {
-          path: '/routertest',
-          name:"list",
-          //@ts-ignore
-          component: ()=> Containers.ListContainer
-        },
-       
-      ]
+      path: "/test",
+      name: "test", 
+      component: ()=>container.ListContainer
     },
-  ],
+    {
+      path:'/testimport',
+      name:'testimport',
+      component:()=>loadableMoudle(import('@platform/test'))
+    }
+  ]
 };
+
+// export const routeConfig: IRoutes= [
+//   {
+//     path: '/dashboard',
+//     name: 'MENU.DASHBOARD',
+//     component: () => <div>@platfrom</div>
+//   },
+//   {
+//     path: "/test",
+//     name: "test", 
+//     component: ()=><div>test</div>
+//   }
+// ];
