@@ -6,7 +6,7 @@ import {PersistGate} from 'redux-persist/integration/react';
 
 import AppLocale from './locales';
 import store, {history, persistor} from './store';
-import './app.less';
+import './app.css';
 // import 'antd/dist/antd.css';
 // import 'core-js/stable';
 import {ConnectedRouter} from 'connected-react-router';
