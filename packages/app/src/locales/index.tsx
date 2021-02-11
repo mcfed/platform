@@ -1,9 +1,9 @@
 import React, {Component, ReactElement} from 'react';
-import {LocaleProvider} from 'antd';
+// import {LocaleProvider} from 'antd';
 import moment from 'moment';
-import zh_CN_antd from 'antd/lib/locale-provider/zh_CN';
-import zh_TW_antd from 'antd/lib/locale-provider/zh_TW';
-import en_US_antd from 'antd/lib/locale-provider/en_US';
+// import zh_CN_antd from 'antd/lib/locale-provider/zh_CN';
+// import zh_TW_antd from 'antd/lib/locale-provider/zh_TW';
+// import en_US_antd from 'antd/lib/locale-provider/en_US';
 import './global.json';
 import 'moment/locale/es';
 import 'moment/locale/zh-tw';
@@ -18,10 +18,10 @@ import {I18nextProvider} from 'react-i18next';
 import i18n from './i18n';
 
 const antdLocal: any = {
-  'zh-CN': Object.assign(zh_CN_antd, zh_CN_MCF),
-  'zh-TW': Object.assign(zh_TW_antd, zh_CHT_MCF),
-  'zh-HK': Object.assign(zh_TW_antd, zh_CHT_MCF),
-  'en-US': Object.assign(en_US_antd, en_US_MCF)
+  // 'zh-CN': Object.assign(zh_CN_antd, zh_CN_MCF),
+  // 'zh-TW': Object.assign(zh_TW_antd, zh_CHT_MCF),
+  // 'zh-HK': Object.assign(zh_TW_antd, zh_CHT_MCF),
+  // 'en-US': Object.assign(en_US_antd, en_US_MCF)
 };
 
 // addLocaleData([...en, ...zh]);
@@ -51,9 +51,9 @@ export class AppLocale extends Component<LocaleProp> {
     const {appReducer, children} = this.props;
     const lang = appReducer.config.lang || navigator.language;
     return (
-      <LocaleProvider locale={antdLocal[lang]}>
-        <I18nextProvider i18n={i18n}>{children}</I18nextProvider>
-      </LocaleProvider>
+      // <LocaleProvider locale={antdLocal[lang]}>
+      <I18nextProvider i18n={i18n}>{children}</I18nextProvider>
+      // </LocaleProvider>
     );
   }
 }

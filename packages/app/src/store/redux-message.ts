@@ -1,4 +1,4 @@
-import {message} from 'antd';
+// import {message} from 'antd';
 
 const SHOW_SUCCESS = '@@MIDDLEWARE/showSuccess';
 const SHOW_ERROR = '@@MIDDLEWARE/showError';
@@ -53,10 +53,10 @@ export default function createMessage(message: any) {
 export const messageMiddleware = createMessage({
   success: function(msg: any) {
     // TODO: 使用国际化渲染提示信息
-    message.success(msg);
+    // message.success(msg);
   },
   error: function(msg: any) {
-    message.error(msg);
+    // message.error(msg);
   },
   comfirm: function() {},
   message: function() {}

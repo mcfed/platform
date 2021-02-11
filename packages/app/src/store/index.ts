@@ -7,12 +7,12 @@ import {persistReducer, persistStore} from 'redux-persist';
 //@ts-ignore
 import autoMergeLevel1 from 'redux-persist/lib/stateReconciler/autoMergeLevel1';
 import storage from 'redux-persist/lib/storage';
-import ScreenSaver, {
-  saverReducer,
-  createSaverMiddleware,
-  DefaultLocker,
-  MachineLocker
-} from '../screensaver';
+// import ScreenSaver, {
+//   saverReducer,
+//   createSaverMiddleware,
+//   DefaultLocker,
+//   MachineLocker
+// } from '../screensaver';
 // import {history} from '../router'
 import {createRouter} from './redux-router';
 import {createHashHistory} from 'history';
@@ -47,25 +47,24 @@ const makeRootReducer: CombinedState<any> = (asyncReducers: any) => {
   );
 };
 
-const screenSaver = new ScreenSaver({
-  locker: new MachineLocker(),
-  duration: 5 * 60 * 1000
-});
+// const screenSaver = new ScreenSaver({
+//   locker: new MachineLocker(),
+//   duration: 5 * 60 * 1000
+// });
 
 const store = new StoreManager(
-  history,
   {
     //@ts-ignore
-    router: connectRouter(history),
-    screenReducer: saverReducer
+    router: connectRouter(history)
+    // screenReducer: saverReducer
   },
   [
     createLogger(),
     messageMiddleware,
     createPassport,
     routerMiddleware(history),
-    createRouter(),
-    createSaverMiddleware(screenSaver)
+    createRouter()
+    // createSaverMiddleware(screenSaver)
   ],
   makeRootReducer
 );

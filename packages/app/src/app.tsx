@@ -5,12 +5,12 @@ import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
 
 import AppLocale from './locales';
-import BasicLayout from './layouts/BasicLayout';
 import store, {history, persistor} from './store';
 import './app.less';
 // import 'antd/dist/antd.css';
 // import 'core-js/stable';
 import {ConnectedRouter} from 'connected-react-router';
+import {BasicLayout} from './layout';
 
 global.API_PREFIX = '';
 if (process.env.NODE_ENV === 'development') {

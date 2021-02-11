@@ -2,7 +2,7 @@ import React from 'react';
 import Loadable from 'react-loadable';
 import {RouterConfig} from '../interface';
 import store from '../store';
-import {renderModuleRoutes} from '../components/render-module-routes';
+import {renderModuleRoutes} from './render-module-routes';
 
 export * from './AppRouter';
 
