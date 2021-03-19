@@ -47,10 +47,10 @@ const makeRootReducer: CombinedState<any> = (asyncReducers: any) => {
   );
 };
 
-const screenSaver = new ScreenSaver({
-  locker: new MachineLocker(),
-  duration: 5 * 60 * 1000
-});
+// const screenSaver = new ScreenSaver({
+//   locker: new MachineLocker(),
+//   duration: 5 * 60 * 1000
+// });
 
 const store = new StoreManager(
   history,
@@ -64,8 +64,8 @@ const store = new StoreManager(
     messageMiddleware,
     createPassport,
     routerMiddleware(history),
-    createRouter(),
-    createSaverMiddleware(screenSaver)
+    createRouter()
+    // createSaverMiddleware(screenSaver)
   ],
   makeRootReducer
 );

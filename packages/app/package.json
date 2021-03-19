@@ -7,6 +7,10 @@
   "typescript": "./src",
   "types": "dist/cjs/index.d.ts",
   "dependencies": {
+    "@antv/chart-advisor": "^1.1.2",
+    "@antv/g2plot": "^2.3.16",
+    "@antv/l7": "^2.3.9",
+    "@antv/l7-maps": "^2.3.9",
     "@mcfed/components": "^0.3.0-beta3",
     "@mcfed/core": "^0.5.0-beta2",
     "@mcfed/crud": "^0.4.3-beta",
