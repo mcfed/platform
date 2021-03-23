@@ -38,9 +38,10 @@ function shake(configs: any, defaultCfgs: any) {
 export const RG2PlotChart = React.forwardRef((props: PG2PloatChat) => {
   const eleRef = useRef<HTMLDivElement>(null);
   const chartType = props.configs.type || props.type;
-  //@ts-ignore
+
   const {xAxis, yAxis, height, width, label, ...config} = shake(
     props.configs,
+    //@ts-ignore
     defaultConfigs[chartType]
   );
   console.log(config);
