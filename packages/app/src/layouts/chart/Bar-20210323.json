@@ -1,0 +1,125 @@
+{
+  "id": "u-7fbd-00c",
+  "data": [
+    {
+      "x": "家具家电",
+      "y": 699
+    },
+    {
+      "x": "粮油副食",
+      "y": 710
+    },
+    {
+      "x": "美容洗护",
+      "y": 77
+    },
+    {
+      "x": "母婴用品",
+      "y": 538
+    },
+    {
+      "x": "进口食品",
+      "y": 530
+    },
+    {
+      "x": "食品饮料",
+      "y": 311
+    },
+    {
+      "x": "家庭清洁",
+      "y": 684
+    }
+  ],
+  "configs": {
+    "renderer": "canvas",
+    "title": {
+      "visible": true,
+      "text": "条形图"
+    },
+    "description": {
+      "visible": true,
+      "text": "一个简单的条形图"
+    },
+    "padding": "auto",
+    "legend": {
+      "visible": true,
+      "position": "top-left",
+      "flipPage": false
+    },
+    "tooltip": {
+      "visible": true,
+      "shared": true,
+      "crosshairs": {
+        "type": "rect"
+      }
+    },
+    "xAxis": {
+      "visible": true,
+      "autoHideLabel": false,
+      "autoRotateLabel": false,
+      "autoRotateTitle": false,
+      "grid": {
+        "visible": false
+      },
+      "line": {
+        "visible": false
+      },
+      "tickLine": {
+        "visible": false
+      },
+      "label": {
+        "visible": false
+      },
+      "title": {
+        "visible": false,
+        "offset": 12
+      }
+    },
+    "yAxis": {
+      "visible": true,
+      "autoHideLabel": false,
+      "autoRotateLabel": false,
+      "autoRotateTitle": true,
+      "grid": {
+        "visible": false
+      },
+      "line": {
+        "visible": false
+      },
+      "tickLine": {
+        "visible": false
+      },
+      "label": {
+        "visible": true
+      },
+      "title": {
+        "visible": false,
+        "offset": 12
+      }
+    },
+    "label": {
+      "visible": true,
+      "position": "left",
+      "adjustColor": true
+    },
+    "conversionTag": {
+      "visible": false
+    },
+    "type": "Bar",
+    "forceFit": false,
+    "animation": false,
+    "width": 560,
+    "height": 376,
+    "data": {
+      "styles": {
+        "Default": {
+          "color": "#5bf96a"
+        }
+      }
+    },
+    "xField": "y",
+    "yField": "x",
+    "barSize": 7
+  },
+  "selection": [1, 7]
+}

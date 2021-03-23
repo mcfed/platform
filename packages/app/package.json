@@ -9,6 +9,7 @@
   "dependencies": {
     "@antv/chart-advisor": "^1.1.2",
     "@antv/g2plot": "^2.3.16",
+    "@antv/g2plot-schemas": "^1.2.0",
     "@antv/l7": "^2.3.9",
     "@antv/l7-maps": "^2.3.9",
     "@mcfed/components": "^0.3.0-beta3",

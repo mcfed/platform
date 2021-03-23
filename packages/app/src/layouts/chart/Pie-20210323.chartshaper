@@ -1,0 +1,123 @@
+{
+  "id": "u-4fcf-34b",
+  "data": [
+    {
+      "x": "家具家电",
+      "y": 799
+    },
+    {
+      "x": "粮油副食",
+      "y": 931
+    },
+    {
+      "x": "美容洗护",
+      "y": 634
+    },
+    {
+      "x": "母婴用品",
+      "y": 709
+    },
+    {
+      "x": "进口食品",
+      "y": 634
+    }
+  ],
+  "configs": {
+    "renderer": "canvas",
+    "title": {
+      "visible": true,
+      "text": "饼图"
+    },
+    "description": {
+      "visible": true,
+      "text": "一个简单的饼图"
+    },
+    "padding": "auto",
+    "legend": {
+      "visible": true,
+      "position": "bottom-center",
+      "flipPage": false
+    },
+    "tooltip": {
+      "visible": true,
+      "shared": false,
+      "crosshairs": null
+    },
+    "xAxis": {
+      "visible": true,
+      "autoHideLabel": false,
+      "autoRotateLabel": false,
+      "autoRotateTitle": false,
+      "grid": {
+        "visible": false
+      },
+      "line": {
+        "visible": true
+      },
+      "tickLine": {
+        "visible": true
+      },
+      "label": {
+        "visible": true
+      },
+      "title": {
+        "visible": false,
+        "offset": 12
+      }
+    },
+    "yAxis": {
+      "visible": true,
+      "autoHideLabel": false,
+      "autoRotateLabel": false,
+      "autoRotateTitle": true,
+      "grid": {
+        "visible": true
+      },
+      "line": {
+        "visible": false
+      },
+      "tickLine": {
+        "visible": false
+      },
+      "label": {
+        "visible": true
+      },
+      "title": {
+        "visible": false,
+        "offset": 12
+      }
+    },
+    "label": {
+      "visible": true,
+      "type": "spider",
+      "autoRotate": false,
+      "allowOverlap": false,
+      "line": {
+        "smooth": true
+      }
+    },
+    "width": 560,
+    "height": 376,
+    "forceFit": false,
+    "radius": 1,
+    "pieStyle": {
+      "stroke": "white",
+      "lineWidth": 1
+    },
+    "type": "Pie",
+    "animation": false,
+    "data": {
+      "styles": {
+        "粮油副食": {
+          "color": "#a25ad8"
+        }
+      }
+    },
+    "colorField": "x",
+    "angleField": "y"
+  },
+  "selection": [
+    1,
+    1
+  ]
+}

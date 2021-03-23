@@ -7,6 +7,7 @@ const {
   addBabelPlugin,
   addWebpackPlugin,
   addWebpackResolve,
+  addWebpackModuleRule,
   overrideDevServer,
   addLessLoader,
   addWebpackAlias
@@ -45,6 +46,7 @@ module.exports = {
         // modifyVars: { '@primary-color': '#1DA57A' },
       }
     })(config);
+    addWebpackModuleRule({test: /\.chartshaper$/, use: 'json-loader'});
     addWebpackResolve({
       mainFields: ['typescript', 'browser', 'module', 'main']
     })(config);

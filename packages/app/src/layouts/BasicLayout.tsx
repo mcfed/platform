@@ -5,8 +5,12 @@ import React from 'react';
 import {RFLayout, RFPane} from '../components/layout';
 import {RG2PlotChart} from '../components/Chart';
 import {Scene} from '../components/Scene';
+import BarConfig from './chart/Bar-20210323.json';
+import PieConfig from './chart/Pie-20210323.json';
+import WaterfallConfig from './chart/Waterfall-20210323.json';
 import {
   LineConfig,
+  LineChartshaper,
   ColumnConfig,
   MapConfig,
   RadarConfig,
@@ -15,7 +19,7 @@ import {
 
 const {defaultMergeProps} = Container;
 const {appSelector} = Selector;
-
+console.log(BarConfig, PieConfig);
 export function BasicLayout(props: any) {
   return (
     <RFLayout direction='column'>
@@ -37,14 +41,14 @@ export function BasicLayout(props: any) {
           </RFPane>
           <RFPane>
             <Scene title='column'>
-              <RG2PlotChart {...ColumnConfig}></RG2PlotChart>
+              {/* <RG2PlotChart {...BarConfig}></RG2PlotChart> */}
             </Scene>
           </RFPane>
-          <RFPane>{/* <RG2PlotChart {...PieConfig}></RG2PlotChart> */}</RFPane>
+          <RFPane>
+            <RG2PlotChart {...WaterfallConfig}></RG2PlotChart>
+          </RFPane>
         </RFLayout>
-        <RFPane>
-          <RG2PlotChart {...MapConfig}></RG2PlotChart>
-        </RFPane>
+        <RFPane>{/* <RG2PlotChart {...MapConfig}></RG2PlotChart> */}</RFPane>
         <RFLayout
           direction='column'
           style={{
@@ -55,10 +59,10 @@ export function BasicLayout(props: any) {
             flex: 'none'
           }}>
           <RFPane>
-            <RG2PlotChart {...RadarConfig}></RG2PlotChart>
+            <RG2PlotChart {...LineChartshaper}></RG2PlotChart>
           </RFPane>
           <RFPane>
-            <RG2PlotChart {...LiquidConfig}></RG2PlotChart>
+            <RG2PlotChart {...PieConfig}></RG2PlotChart>
           </RFPane>
           <RFPane>{/* <RG2PlotChart {...PieConfig}></RG2PlotChart> */}</RFPane>
         </RFLayout>

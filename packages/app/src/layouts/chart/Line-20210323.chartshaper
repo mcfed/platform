@@ -1,0 +1,127 @@
+{
+  "id": "u-f644-808",
+  "data": [
+    {
+      "x": "2019-01",
+      "y": 133
+    },
+    {
+      "x": "2019-02",
+      "y": 575
+    },
+    {
+      "x": "2019-03",
+      "y": 307
+    },
+    {
+      "x": "2019-04",
+      "y": 318
+    }
+  ],
+  "configs": {
+    "renderer": "canvas",
+    "title": {
+      "visible": true,
+      "text": "单折线图"
+    },
+    "description": {
+      "visible": true,
+      "text": "一个简单的单折线图"
+    },
+    "padding": "auto",
+    "legend": {
+      "visible": true,
+      "position": "top-left",
+      "wordSpacing": 4,
+      "flipPage": false
+    },
+    "tooltip": {
+      "visible": true,
+      "shared": true,
+      "crosshairs": {
+        "type": "y"
+      }
+    },
+    "xAxis": {
+      "visible": true,
+      "autoHideLabel": false,
+      "autoRotateLabel": false,
+      "autoRotateTitle": false,
+      "grid": {
+        "visible": false
+      },
+      "line": {
+        "visible": true
+      },
+      "tickLine": {
+        "visible": true
+      },
+      "label": {
+        "visible": true
+      },
+      "title": {
+        "visible": false,
+        "offset": 12
+      }
+    },
+    "yAxis": {
+      "visible": true,
+      "autoHideLabel": false,
+      "autoRotateLabel": false,
+      "autoRotateTitle": true,
+      "grid": {
+        "visible": true
+      },
+      "line": {
+        "visible": false
+      },
+      "tickLine": {
+        "visible": false
+      },
+      "label": {
+        "visible": true
+      },
+      "title": {
+        "visible": false,
+        "offset": 12
+      }
+    },
+    "label": {
+      "visible": true,
+      "type": "point"
+    },
+    "connectNulls": false,
+    "smooth": true,
+    "lineSize": 5,
+    "lineStyle": {
+      "lineJoin": "round",
+      "lineCap": "round"
+    },
+    "point": {
+      "visible": true,
+      "size": 3,
+      "shape": "square",
+      "style": {
+        "stroke": "#fff"
+      }
+    },
+    "type": "Line",
+    "forceFit": false,
+    "animation": false,
+    "width": 741,
+    "height": 331,
+    "data": {
+      "styles": {
+        "Default": {
+          "color": "#b448a7"
+        }
+      }
+    },
+    "xField": "x",
+    "yField": "y"
+  },
+  "selection": [
+    1,
+    1
+  ]
+}

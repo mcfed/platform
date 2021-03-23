@@ -1,0 +1,146 @@
+{
+  "id": "u-c900-6cc",
+  "data": [
+    {
+      "x": "日用品",
+      "y": 120
+    },
+    {
+      "x": "伙食费",
+      "y": 900
+    },
+    {
+      "x": "交通费",
+      "y": 200
+    },
+    {
+      "x": "水电费",
+      "y": 300
+    },
+    {
+      "x": "房租",
+      "y": 1200
+    },
+    {
+      "x": "商场消费",
+      "y": 1000
+    },
+    {
+      "x": "应酬红包",
+      "y": -2000
+    },
+    {
+      "x": "Column1",
+      "y": 912
+    },
+    {
+      "x": "Column2",
+      "y": 158
+    }
+  ],
+  "configs": {
+    "renderer": "canvas",
+    "title": {
+      "visible": true,
+      "text": "瀑布图"
+    },
+    "description": {
+      "visible": true,
+      "text": "一个简单的瀑布图"
+    },
+    "padding": "auto",
+    "legend": {
+      "visible": false,
+      "position": "bottom",
+      "flipPage": false
+    },
+    "tooltip": {
+      "visible": true,
+      "shared": true,
+      "crosshairs": {
+        "type": "rect"
+      }
+    },
+    "xAxis": {
+      "visible": true,
+      "autoHideLabel": false,
+      "autoRotateLabel": false,
+      "autoRotateTitle": false,
+      "grid": {
+        "visible": false
+      },
+      "line": {
+        "visible": true
+      },
+      "tickLine": {
+        "visible": true
+      },
+      "label": {
+        "visible": true
+      },
+      "title": {
+        "visible": false,
+        "offset": 12
+      }
+    },
+    "yAxis": {
+      "visible": true,
+      "autoHideLabel": false,
+      "autoRotateLabel": false,
+      "autoRotateTitle": true,
+      "grid": {
+        "visible": true
+      },
+      "line": {
+        "visible": false
+      },
+      "tickLine": {
+        "visible": false
+      },
+      "label": {
+        "visible": true
+      },
+      "title": {
+        "visible": false,
+        "offset": 12
+      }
+    },
+    "label": {
+      "visible": true,
+      "adjustPosition": true
+    },
+    "diffLabel": {
+      "visible": true
+    },
+    "leaderLine": {
+      "visible": true
+    },
+    "showTotal": {
+      "visible": true,
+      "label": "总计值"
+    },
+    "waterfallStyle": {
+      "lineWidth": 0
+    },
+    "type": "Waterfall",
+    "forceFit": false,
+    "animation": false,
+    "width": 560,
+    "height": 376,
+    "data": {
+      "styles": {
+        "rising": {
+          "color": "#f4664a"
+        },
+        "falling": {
+          "color": "#5cdf9e"
+        },
+        "total": {
+          "color": "#AAA"
+        }
+      }
+    },
+    "xField": "x",
+    "yField": "y"
+  }
+}
