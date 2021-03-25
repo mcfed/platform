@@ -1,11 +1,15 @@
 import React, {useLayoutEffect, useRef} from 'react';
 import * as G2Plot from '@antv/g2plot';
-import DrawScene from '../Chart/map';
+import DrawScene from './map';
 import {Editor, defaultConfigs} from '@antv/g2plot-schemas';
 import {isEqual} from '@antv/util';
-interface PG2PloatChat {
+import DataSet from '@antv/data-set';
+
+interface PG2PloatChart {
   id: string;
   data: any;
+  fetch?: any;
+  ds?: DataSet;
   type?: string;
   configs: any;
 }
@@ -35,21 +39,19 @@ function shake(configs: any, defaultCfgs: any) {
   return result;
 }
 
-export const RG2PlotChart = React.forwardRef((props: PG2PloatChat) => {
+export const RG2PlotChart = React.forwardRef((props: PG2PloatChart) => {
   const eleRef = useRef<HTMLDivElement>(null);
   const chartType = props.configs.type || props.type;
-
+  // console.log(props.data)
   const {xAxis, yAxis, height, width, label, ...config} = shake(
     props.configs,
     //@ts-ignore
     defaultConfigs[chartType]
   );
-  console.log(config);
   useLayoutEffect(function() {
     //@ts-ignore
     if (chartType == 'map') {
-      const mapScene = new DrawScene(eleRef.current, props.data, config);
-      mapScene.draw();
+      new DrawScene(eleRef.current, props.data, config).draw();
     } else {
       //@ts-ignore
       new G2Plot[chartType](eleRef.current, {

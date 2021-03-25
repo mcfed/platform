@@ -1,0 +1,161 @@
+{
+  "id": "u-71f6-72a",
+  "data": [
+    {
+      "x": "家具家电",
+      "type": "门店一",
+      "y": 889
+    },
+    {
+      "x": "家具家电",
+      "type": "门店二",
+      "y": 101
+    },
+    {
+      "x": "粮油副食",
+      "type": "门店一",
+      "y": 958
+    },
+    {
+      "x": "粮油副食",
+      "type": "门店二",
+      "y": 419
+    },
+    {
+      "x": "美容洗护",
+      "type": "门店一",
+      "y": 505
+    },
+    {
+      "x": "美容洗护",
+      "type": "门店二",
+      "y": 430
+    },
+    {
+      "x": "母婴用品",
+      "type": "门店一",
+      "y": 802
+    },
+    {
+      "x": "母婴用品",
+      "type": "门店二",
+      "y": 934
+    },
+    {
+      "x": "进口食品",
+      "type": "门店一",
+      "y": 588
+    },
+    {
+      "x": "进口食品",
+      "type": "门店二",
+      "y": 904
+    },
+    {
+      "x": "食品饮料",
+      "type": "门店一",
+      "y": 786
+    },
+    {
+      "x": "食品饮料",
+      "type": "门店二",
+      "y": 996
+    },
+    {
+      "x": "家庭清洁",
+      "type": "门店一",
+      "y": 660
+    },
+    {
+      "x": "家庭清洁",
+      "type": "门店二",
+      "y": 274
+    }
+  ],
+  "configs": {
+    "renderer": "canvas",
+    "title": {
+      "visible": true,
+      "text": "分组柱状图"
+    },
+    "description": {
+      "visible": true,
+      "text": "一个简单的分组柱状图"
+    },
+    "padding": "auto",
+    "legend": {
+      "visible": true,
+      "position": "bottom-left",
+      "flipPage": false
+    },
+    "tooltip": {
+      "visible": true,
+      "shared": true,
+      "crosshairs": {
+        "type": "rect"
+      }
+    },
+    "xAxis": {
+      "visible": true,
+      "autoHideLabel": false,
+      "autoRotateLabel": false,
+      "autoRotateTitle": false,
+      "grid": {
+        "visible": false
+      },
+      "line": {
+        "visible": true
+      },
+      "tickLine": {
+        "visible": false
+      },
+      "label": {
+        "visible": true
+      },
+      "title": {
+        "visible": false,
+        "offset": 12
+      }
+    },
+    "yAxis": {
+      "visible": true,
+      "autoHideLabel": false,
+      "autoRotateLabel": false,
+      "autoRotateTitle": true,
+      "grid": {
+        "visible": true
+      },
+      "line": {
+        "visible": false
+      },
+      "tickLine": {
+        "visible": false
+      },
+      "label": {
+        "visible": true
+      },
+      "title": {
+        "visible": false,
+        "offset": 12
+      }
+    },
+    "label": {
+      "visible": false,
+      "position": "top",
+      "adjustColor": true
+    },
+    "conversionTag": {
+      "visible": false
+    },
+    "type": "GroupColumn",
+    "forceFit": false,
+    "animation": false,
+    "width": 560,
+    "height": 376,
+    "data": {},
+    "xField": "x",
+    "yField": "y",
+    "groupField": "type"
+  },
+  "selection": [1, 0]
+}

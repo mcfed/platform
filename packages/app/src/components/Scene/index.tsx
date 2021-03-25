@@ -1,3 +1,4 @@
+import {Spin} from 'antd';
 import React, {ReactNode} from 'react';
 
 type CScene = (props: PScene) => JSX.Element;
@@ -5,6 +6,8 @@ type CScene = (props: PScene) => JSX.Element;
 interface PScene {
   title?: string;
   prefix?: string;
+  loading?: boolean;
+  data?: any;
   className?: string;
   children: ReactNode;
   renderFooter?: () => ReactNode;
@@ -31,12 +34,11 @@ export const Scene: CScene = (props: PScene) => {
       </div>
     );
   }
-
   return (
     <div className={[prefixClassName, props.className].join(' ')}>
       {props.title ? header() : null}
       <div className={[prefixClassName, 'body'].join('_')}>
-        {props.children}
+        {props.loading == true ? <Spin></Spin> : props.children}
       </div>
       {props.renderFooter ? footer() : null}
     </div>

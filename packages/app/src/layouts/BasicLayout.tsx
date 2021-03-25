@@ -3,11 +3,13 @@ import {Selector, Container} from '@mcfed/core';
 import {withTokenAuth} from '../router/withTokenAuth';
 import React from 'react';
 import {RFLayout, RFPane} from '../components/layout';
-import {RG2PlotChart} from '../components/Chart';
+import {RG2PlotChart} from '../components/chart';
 import {Scene} from '../components/Scene';
 import BarConfig from './chart/Bar-20210323.json';
 import PieConfig from './chart/Pie-20210323.json';
 import WaterfallConfig from './chart/Waterfall-20210323.json';
+import ScatterConfig from './chart/Scatter-20210323.json';
+import GroupColumnConfig from './chart/GroupColumn-20210324.json';
 import {
   LineConfig,
   LineChartshaper,
@@ -23,7 +25,9 @@ console.log(BarConfig, PieConfig);
 export function BasicLayout(props: any) {
   return (
     <RFLayout direction='column'>
-      <RFPane style={{height: '80px', flex: 'none'}}>1</RFPane>
+      <RFPane style={{height: '80px', flex: 'none'}}>
+        <RG2PlotChart {...LineChartshaper}></RG2PlotChart>
+      </RFPane>
       <RFLayout direction='row' style={{position: 'relative'}}>
         <RFLayout
           direction='column'
@@ -35,20 +39,22 @@ export function BasicLayout(props: any) {
             flex: 'none'
           }}>
           <RFPane>
-            <Scene title='line'>
+            <Scene title='line1'>
               <RG2PlotChart {...LineConfig}></RG2PlotChart>
             </Scene>
           </RFPane>
           <RFPane>
             <Scene title='column'>
-              {/* <RG2PlotChart {...BarConfig}></RG2PlotChart> */}
+              <RG2PlotChart {...BarConfig}></RG2PlotChart>
             </Scene>
           </RFPane>
           <RFPane>
             <RG2PlotChart {...WaterfallConfig}></RG2PlotChart>
           </RFPane>
         </RFLayout>
-        <RFPane>{/* <RG2PlotChart {...MapConfig}></RG2PlotChart> */}</RFPane>
+        <RFPane>
+          <RG2PlotChart {...ScatterConfig}></RG2PlotChart>
+        </RFPane>
         <RFLayout
           direction='column'
           style={{
@@ -58,9 +64,7 @@ export function BasicLayout(props: any) {
             width: '350px',
             flex: 'none'
           }}>
-          <RFPane>
-            <RG2PlotChart {...LineChartshaper}></RG2PlotChart>
-          </RFPane>
+          <RFPane></RFPane>
           <RFPane>
             <RG2PlotChart {...PieConfig}></RG2PlotChart>
           </RFPane>

@@ -1,0 +1,218 @@
+{
+  "id": "u-5977-889",
+  "data": [
+    {
+      "x": 537,
+      "y": 229
+    },
+    {
+      "x": 32,
+      "y": 679
+    },
+    {
+      "x": 823,
+      "y": 145
+    },
+    {
+      "x": 144,
+      "y": 834
+    },
+    {
+      "x": 241,
+      "y": 679
+    },
+    {
+      "x": 313,
+      "y": 54
+    },
+    {
+      "x": 523,
+      "y": 579
+    },
+    {
+      "x": 45,
+      "y": 610
+    },
+    {
+      "x": 139,
+      "y": 510
+    },
+    {
+      "x": 708,
+      "y": 925
+    },
+    {
+      "x": 937,
+      "y": 522
+    },
+    {
+      "x": 15,
+      "y": 479
+    },
+    {
+      "x": 923,
+      "y": 94
+    },
+    {
+      "x": 353,
+      "y": 531
+    },
+    {
+      "x": 588,
+      "y": 127
+    },
+    {
+      "x": 159,
+      "y": 0
+    },
+    {
+      "x": 719,
+      "y": 826
+    },
+    {
+      "x": 50,
+      "y": 799
+    },
+    {
+      "x": 249,
+      "y": 652
+    },
+    {
+      "x": 946,
+      "y": 781
+    },
+    {
+      "x": 676,
+      "y": 632
+    },
+    {
+      "x": 183,
+      "y": 35
+    },
+    {
+      "x": 135,
+      "y": 36
+    },
+    {
+      "x": 928,
+      "y": 407
+    },
+    {
+      "x": 949,
+      "y": 463
+    },
+    {
+      "x": 942,
+      "y": 389
+    },
+    {
+      "x": 170,
+      "y": 897
+    },
+    {
+      "x": 662,
+      "y": 623
+    },
+    {
+      "x": 772,
+      "y": 752
+    },
+    {
+      "x": 546,
+      "y": 903
+    }
+  ],
+  "configs": {
+    "renderer": "canvas",
+    "title": {
+      "visible": true,
+      "text": "散点图"
+    },
+    "description": {
+      "visible": true,
+      "text": "一个简单的散点图"
+    },
+    "padding": "auto",
+    "legend": {
+      "visible": true,
+      "position": "bottom-center",
+      "flipPage": false
+    },
+    "tooltip": {
+      "visible": true,
+      "shared": null,
+      "crosshairs": {
+        "type": "rect"
+      }
+    },
+    "xAxis": {
+      "visible": true,
+      "autoHideLabel": false,
+      "autoRotateLabel": false,
+      "autoRotateTitle": false,
+      "grid": {
+        "visible": true
+      },
+      "line": {
+        "visible": true
+      },
+      "tickLine": {
+        "visible": true
+      },
+      "label": {
+        "visible": true
+      },
+      "title": {
+        "visible": false,
+        "offset": 12
+      }
+    },
+    "yAxis": {
+      "visible": true,
+      "autoHideLabel": false,
+      "autoRotateLabel": false,
+      "autoRotateTitle": true,
+      "grid": {
+        "visible": true
+      },
+      "line": {
+        "visible": true
+      },
+      "tickLine": {
+        "visible": false
+      },
+      "label": {
+        "visible": true
+      },
+      "title": {
+        "visible": false,
+        "offset": 12
+      }
+    },
+    "label": {
+      "visible": false,
+      "position": "top"
+    },
+    "pointSize": 4,
+    "pointStyle": {
+      "strokeOpacity": 1,
+      "fillOpacity": 0.4,
+      "opacity": 0.65
+    },
+    "shape": "circle",
+    "type": "Scatter",
+    "forceFit": false,
+    "animation": false,
+    "width": 560,
+    "height": 376,
+    "data": {
+      "styles": {
+        "Default": {
+          "color": "#0c2049"
+        }
+      }
+    },
+    "xField": "x",
+    "yField": "y"
+  }
+}
