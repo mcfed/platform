@@ -22,6 +22,13 @@ import {
 const {defaultMergeProps} = Container;
 const {appSelector} = Selector;
 console.log(BarConfig, PieConfig);
+const G6Configs={
+  layout :{
+    type: "graphin-force",
+    minNodeSpacing: 30,
+    animation: false
+  }
+}
 export function BasicLayout(props: any) {
   return (
     <RFLayout direction='column'>
@@ -44,7 +51,7 @@ export function BasicLayout(props: any) {
             </Scene>
           </RFPane>
           <RFPane>
-            <Scene title='line'>
+            <Scene title='line'  >
               <RG2PlotChart {...LineConfig} type='listTop'></RG2PlotChart>
             </Scene>
           </RFPane>
@@ -54,7 +61,7 @@ export function BasicLayout(props: any) {
             </Scene>
           </RFPane>
         </RFLayout>
-        <RFPane>center</RFPane>
+        <RFPane>G6Configs</RFPane>
         <RFLayout
           direction='column'
           style={{
@@ -67,7 +74,7 @@ export function BasicLayout(props: any) {
             flex: 'none'
           }}>
           <RFPane>
-            <Scene title='11'>111</Scene>
+            <Scene title='g6'><RG2PlotChart type="g6" data={[]} id="sdf" configs={G6Configs} ></RG2PlotChart></Scene>
           </RFPane>
           <RFPane>
             <Scene title='pie'>
@@ -84,6 +91,8 @@ export function BasicLayout(props: any) {
     </RFLayout>
   );
 }
+
+
 
 const mapStateToProps = (state: any, props: any) => {
   return {
