@@ -1,5 +1,6 @@
 export const LineConfig = {
   id: 'u-47e3-c6b',
+  type: 'listTop',
   data: [
     {
       series: 'London',
@@ -71,7 +72,7 @@ export const LineConfig = {
       visible: true,
       text: '一个简单的多折线图'
     },
-    type: 'Line',
+
     legend: {
       flipPage: false
     },

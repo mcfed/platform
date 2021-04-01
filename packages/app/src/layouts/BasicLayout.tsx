@@ -25,9 +25,7 @@ console.log(BarConfig, PieConfig);
 export function BasicLayout(props: any) {
   return (
     <RFLayout direction='column'>
-      <RFPane style={{height: '80px', flex: 'none'}}>
-        <RG2PlotChart {...LineChartshaper}></RG2PlotChart>
-      </RFPane>
+      <RFPane style={{height: '80px', flex: 'none'}}>header</RFPane>
       <RFLayout direction='row' style={{position: 'relative'}}>
         <RFLayout
           direction='column'
@@ -35,6 +33,8 @@ export function BasicLayout(props: any) {
             position: 'absolute',
             zIndex: 99,
             left: 0,
+            top: 0,
+            bottom: 0,
             width: '350px',
             flex: 'none'
           }}>
@@ -44,31 +44,41 @@ export function BasicLayout(props: any) {
             </Scene>
           </RFPane>
           <RFPane>
-            <Scene title='column'>
-              <RG2PlotChart {...BarConfig}></RG2PlotChart>
+            <Scene title='line'>
+              <RG2PlotChart {...LineConfig} type='listTop'></RG2PlotChart>
             </Scene>
           </RFPane>
           <RFPane>
-            <RG2PlotChart {...WaterfallConfig}></RG2PlotChart>
+            <Scene title='bar'>
+              <RG2PlotChart {...BarConfig}></RG2PlotChart>
+            </Scene>
           </RFPane>
         </RFLayout>
-        <RFPane>
-          <RG2PlotChart {...ScatterConfig}></RG2PlotChart>
-        </RFPane>
+        <RFPane>center</RFPane>
         <RFLayout
           direction='column'
           style={{
             position: 'absolute',
             zIndex: 99,
             right: 0,
+            top: 0,
+            bottom: 0,
             width: '350px',
             flex: 'none'
           }}>
-          <RFPane></RFPane>
           <RFPane>
-            <RG2PlotChart {...PieConfig}></RG2PlotChart>
+            <Scene title='11'>111</Scene>
           </RFPane>
-          <RFPane>{/* <RG2PlotChart {...PieConfig}></RG2PlotChart> */}</RFPane>
+          <RFPane>
+            <Scene title='pie'>
+              <RG2PlotChart {...PieConfig}></RG2PlotChart>
+            </Scene>
+          </RFPane>
+          <RFPane>
+            <Scene title='scatter'>
+              <RG2PlotChart {...ScatterConfig}></RG2PlotChart>
+            </Scene>
+          </RFPane>
         </RFLayout>
       </RFLayout>
     </RFLayout>

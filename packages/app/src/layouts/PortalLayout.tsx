@@ -7,14 +7,12 @@ import {Layout} from 'antd';
 import {Selector, Container} from '@mcfed/core';
 import {AppLayout} from '@mcfed/layout';
 
-import {GlobalHeader} from '../components';
-
 import logo from '../assets/logo.png';
 import styles from './PortalLayout.module.css';
 import {
   useHandleMenuSelect,
   useLogoutAction,
-  useChangeTitleConfig,
+  useChangeTitleConfig
 } from './hooks';
 import {withTokenAuth} from '../router/withTokenAuth';
 
@@ -39,7 +37,7 @@ interface PortalLayoutProps {
 export function PortalLayout(props: PortalLayoutProps) {
   const {appReducer, dispatch, history} = props;
   const {globalConfig} = appReducer.config;
-  const { user} = appReducer;
+  const {user} = appReducer;
   const userId = user?.id;
   const logoutAction = useLogoutAction();
   const handleMenuSelect = useHandleMenuSelect({
@@ -51,17 +49,7 @@ export function PortalLayout(props: PortalLayoutProps) {
   useChangeTitleConfig(globalConfig);
   return (
     <Layout>
-      <Header
-        className={classnames('global-header', 'user-center',styles['portal-header'])} >
-        <GlobalHeader
-          className={styles['portal-header']}
-          logo={logo}
-          user={user}
-          onMenuSelect={handleMenuSelect}></GlobalHeader>
-        </Header>
-      
-      <Content className={styles['portal-content']}>
-      </Content>
+      <Content className={styles['portal-content']}></Content>
     </Layout>
   );
 }
@@ -80,9 +68,9 @@ const dispatchToProps = (dispatch: any) => {
 };
 
 const PortalLayoutContainer = connect(
-    mapStateToProps,
-    dispatchToProps,
-    defaultMergeProps
-  )(withTokenAuth(PortalLayout))
+  mapStateToProps,
+  dispatchToProps,
+  defaultMergeProps
+)(withTokenAuth(PortalLayout));
 
 export default PortalLayoutContainer;

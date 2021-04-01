@@ -1,6 +1,7 @@
 import React, {useLayoutEffect, useRef} from 'react';
 import * as G2Plot from '@antv/g2plot';
 import DrawScene from './map';
+import {ListTop} from '../html';
 import {Editor, defaultConfigs} from '@antv/g2plot-schemas';
 import {isEqual} from '@antv/util';
 import DataSet from '@antv/data-set';
@@ -52,6 +53,13 @@ export const RG2PlotChart = React.forwardRef((props: PG2PloatChart) => {
     //@ts-ignore
     if (chartType == 'map') {
       new DrawScene(eleRef.current, props.data, config).draw();
+    } else if (chartType == 'listTop') {
+      // console.log(chartType)
+      new ListTop({
+        id: props.id,
+        container: eleRef.current as HTMLElement,
+        items: props.data
+      }).render();
     } else {
       //@ts-ignore
       new G2Plot[chartType](eleRef.current, {
