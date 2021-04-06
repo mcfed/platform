@@ -1,6 +1,8 @@
 import {Spin} from 'antd';
 import React, {ReactNode} from 'react';
 
+import './index.css';
+
 type CScene = (props: PScene) => JSX.Element;
 
 interface PScene {
@@ -18,10 +20,12 @@ export const Scene: CScene = (props: PScene) => {
 
   function header() {
     return (
-      <div className={[prefixClassName, 'header'].join('_')}>
-        <div className={[prefixClassName, 'title'].join('_')}>
+      <div className={[prefixClassName, 'header'].join('-')}>
+        <div className={[prefixClassName, 'title'].join('-')}>
           <h3>{props.title}</h3>
-          <div>more</div>
+          <div className={[prefixClassName, 'header', 'more'].join('-')}>
+            more
+          </div>
         </div>
       </div>
     );
@@ -29,7 +33,7 @@ export const Scene: CScene = (props: PScene) => {
 
   function footer() {
     return (
-      <div className={[prefixClassName, 'footer'].join('_')}>
+      <div className={[prefixClassName, 'footer'].join('-')}>
         {props.renderFooter}
       </div>
     );
@@ -37,7 +41,7 @@ export const Scene: CScene = (props: PScene) => {
   return (
     <div className={[prefixClassName, props.className].join(' ')}>
       {props.title ? header() : null}
-      <div className={[prefixClassName, 'body'].join('_')}>
+      <div className={[prefixClassName, 'body'].join('-')}>
         {props.loading == true ? <Spin></Spin> : props.children}
       </div>
       {props.renderFooter ? footer() : null}

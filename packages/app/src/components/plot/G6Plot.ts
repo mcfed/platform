@@ -89,13 +89,12 @@ export abstract class G6Plot<O extends PickOptions> extends EE {
    */
   private createG6() {
     const {width, height} = this.options;
-
     this.chart = new Graph({
       container: this.container,
       ...this.getChartSize(width, height),
-      ...pick(this.options, PLOT_CONTAINER_OPTIONS)
+      ...pick(this.options, PLOT_CONTAINER_OPTIONS),
+      ...this.options
     });
-    console.log(this.chart);
 
     // 给容器增加标识，知道图表的来源区别于 G2
     this.container.setAttribute(SOURCE_ATTRIBUTE_NAME, 'G6Plot');
@@ -282,18 +281,18 @@ export abstract class G6Plot<O extends PickOptions> extends EE {
     }
 
     const {autoFit = true} = this.options;
-    if (autoFit) {
-      this.unbind = bind(this.container, () => {
-        // 获取最新的宽高信息
-        const {width, height} = getContainerSize(this.container);
+    // if (autoFit) {
+    //   this.unbind = bind(this.container, () => {
+    //     // 获取最新的宽高信息
+    //     const {width, height} = getContainerSize(this.container);
 
-        // 主要是防止绑定的时候触发 resize 回调
-        this.chart.changeSize(width, height);
-        //  if (width !== this.chart.width || height !== this.chart.height) {
-        //    this.triggerResize();
-        //  }
-      });
-    }
+    //     // 主要是防止绑定的时候触发 resize 回调
+    //     // this.chart.changeSize(width, height);
+    //     //  if (width !== this.chart.width || height !== this.chart.height) {
+    //     //    this.triggerResize();
+    //     //  }
+    //   });
+    // }
   }
 
   /**

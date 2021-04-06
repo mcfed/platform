@@ -4,7 +4,7 @@ import {withTokenAuth} from '../router/withTokenAuth';
 import React from 'react';
 import {RFLayout, RFPane} from '../components/layout';
 import {RG2PlotChart} from '../components/chart';
-import {Scene} from '../components/Scene';
+import {Scene} from '../components/scene';
 import BarConfig from './chart/Bar-20210323.json';
 import PieConfig from './chart/Pie-20210323.json';
 import WaterfallConfig from './chart/Waterfall-20210323.json';
@@ -18,17 +18,18 @@ import {
   RadarConfig,
   LiquidConfig
 } from './chartConfig';
+import {RG6GraphChart} from '../components/chart/G6GraphChart';
 
 const {defaultMergeProps} = Container;
 const {appSelector} = Selector;
 console.log(BarConfig, PieConfig);
-const G6Configs={
-  layout :{
-    type: "graphin-force",
+const G6Configs = {
+  layout: {
+    type: 'graphin-force',
     minNodeSpacing: 30,
     animation: false
   }
-}
+};
 export function BasicLayout(props: any) {
   return (
     <RFLayout direction='column'>
@@ -51,7 +52,7 @@ export function BasicLayout(props: any) {
             </Scene>
           </RFPane>
           <RFPane>
-            <Scene title='line'  >
+            <Scene title='line'>
               <RG2PlotChart {...LineConfig} type='listTop'></RG2PlotChart>
             </Scene>
           </RFPane>
@@ -61,7 +62,16 @@ export function BasicLayout(props: any) {
             </Scene>
           </RFPane>
         </RFLayout>
-        <RFPane>G6Configs</RFPane>
+        <RFPane
+          style={{position: 'absolute', left: 0, right: 0, top: 0, bottom: 0}}>
+          <Scene title='g6'>
+            <RG6GraphChart
+              type='g6'
+              data={[]}
+              id='sdf'
+              configs={G6Configs}></RG6GraphChart>
+          </Scene>
+        </RFPane>
         <RFLayout
           direction='column'
           style={{
@@ -74,7 +84,13 @@ export function BasicLayout(props: any) {
             flex: 'none'
           }}>
           <RFPane>
-            <Scene title='g6'><RG2PlotChart type="g6" data={[]} id="sdf" configs={G6Configs} ></RG2PlotChart></Scene>
+            <Scene title='g6'>
+              <RG6GraphChart
+                type='g6'
+                data={[]}
+                id='sdf'
+                configs={G6Configs}></RG6GraphChart>
+            </Scene>
           </RFPane>
           <RFPane>
             <Scene title='pie'>
@@ -91,8 +107,6 @@ export function BasicLayout(props: any) {
     </RFLayout>
   );
 }
-
-
 
 const mapStateToProps = (state: any, props: any) => {
   return {

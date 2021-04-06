@@ -1,21 +1,25 @@
 import React, {useLayoutEffect, useRef} from 'react';
-// import {DataSet} from '@antv/data-set'
+import {G6Plot} from '../plot/G6Plot';
+import {adaptor} from '../plot/Graph/adaptor';
+import {Template} from '../plot/Graph/index';
 
 interface PG6GraphChart {
   id: string;
   data: any;
-  fetch?: any;
-  //   ds?: typeof DataSet;
   type?: string;
   configs: any;
 }
 
-export const RG2PlotChart = React.forwardRef((props: PG6GraphChart) => {
+export const RG6GraphChart = React.forwardRef((props: PG6GraphChart) => {
   const eleRef = useRef<HTMLDivElement>(null);
-  const graph = props.type;
-
+  const {xAxis, yAxis, height, width, label, ...config} = props.configs;
+  const chartType = props.configs.type || props.type;
+  // console.log(props.data)
+  console.log(config);
   useLayoutEffect(function() {
-    // new graph(eleRef.current).render();
+    //@ts-ignore
+    new Template(eleRef.current, config).render();
+    // new G6Plot(eleRef.current,config,adaptor,{}).render()
   });
 
   return <div ref={eleRef}></div>;

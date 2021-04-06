@@ -5,14 +5,10 @@ import {ListTop} from '../html';
 import {Editor, defaultConfigs} from '@antv/g2plot-schemas';
 import {isEqual} from '@antv/util';
 import DataSet from '@antv/data-set';
-// import {adaptorTemplate} from '../plot/Graph/adaptor'
-import {Template} from '../plot/Graph/index';
 
 interface PG2PloatChart {
   id: string;
   data: any;
-  fetch?: any;
-  ds?: DataSet;
   type?: string;
   configs: any;
 }
@@ -62,9 +58,6 @@ export const RG2PlotChart = React.forwardRef((props: PG2PloatChart) => {
         container: eleRef.current as HTMLElement,
         items: props.data
       }).render();
-    } else if (chartType == 'g6') {
-      //@ts-ignore
-      new Template(eleRef.current, config).render();
     } else {
       //@ts-ignore
       new G2Plot[chartType](eleRef.current, {
