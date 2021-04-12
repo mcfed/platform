@@ -19,18 +19,179 @@ import {
   LiquidConfig
 } from './chartConfig';
 import {RG6GraphChart} from '../components/chart/G6GraphChart';
+import G6, { Item } from '@antv/g6';
 
 const {defaultMergeProps} = Container;
 const {appSelector} = Selector;
 console.log(BarConfig, PieConfig);
 const G6Configs = {
+  modes: {
+    default: [
+      'drag-canvas',
+      // 'zoom-canvas',
+      'node-collapse'
+    ],
+  },
+  defaultEdge: {
+    type: 'line',
+    style: {
+      endArrow: {
+        path: G6.Arrow.vee(15, 15, 15), // 使用内置箭头路径函数，参数为箭头的 宽度、长度、偏移量（默认为 0，与 d 对应）
+        d: 15
+      },
+      fill: '#0f0',
+      label: {
+        // value: icons['safety certificate'],
+        // fontFamily: fontFamily,
+        fontSize: 20,
+        fill: '#0f0'
+      },
+      keyshape: {
+        stroke: '#0f0', // 样式属性，元素的描边色
+        lineWidth: 1,
+        lineDash: [5, 4]
+        // lineWidth: 4,
+      }
+    }
+  },
+  defaultNode: {
+    type: 'rect',
+    position: 'left',
+    style: {
+      background: {
+        fill: '#ffffff',
+        stroke: 'green',
+        padding: [3, 2, 3, 2],
+        radius: 2,
+        lineWidth: 3,
+      },
+    },
+  },
   layout: {
     type: 'graphin-force',
-    minNodeSpacing: 30,
-    animation: false
+    linkDistance:80,
+    animation:false
+    // direction: 'RL',
   }
 };
 export function BasicLayout(props: any) {
+  const data = {
+    nodes: [
+      {
+        id: 'node-0',
+        parent:'node-0',
+        label: '应用名称',
+        size:[50]
+      },
+      {
+        id: 'node-1',
+        parent:'node-0',
+        label: '命令空间',
+        type: 'rect',
+      },
+      {
+        id: 'node-1-1',
+        parent:'node-1',
+        label: '授权空间',
+        type: 'rect',
+      },
+      {
+        id: 'node-1-2',
+        parent:'node-1',
+        label: '非授权空间',
+      },
+      {
+        id: 'node-2',
+        parent:'node-0',
+        label: '文件空间',
+        type:"star"
+      },
+      {
+        id: 'node-2-1',
+        parent:'node-2',
+        label: '授权空间',
+      },
+      {
+        id: 'node-2-2',
+        parent:'node-2',
+        label: '非授权空间',
+      },
+      {
+        id: 'node-3',
+        parent:'node-0',
+        label: '执行空间',
+      },
+      {
+        id: 'node-3-1',
+        parent:'node-3',
+        label: '授权空间',
+      },
+      {
+        id: 'node-3-2',
+        parent:'node-3',
+        label: '非授权空间',
+      },
+    ],
+    edges: [
+      {
+        source: 'node-0',
+        target: 'node-1',
+      },
+      {
+        source: 'node-1',
+        target: 'node-1-1',
+      },
+      {
+        source: 'node-1',
+        target: 'node-1-2',
+      },
+      {
+        source: 'node-0',
+        target: 'node-2',
+      },
+      {
+        source: 'node-2',
+        target: 'node-2-1',
+      },
+      {
+        source: 'node-2',
+        target: 'node-2-2',
+      },
+      {
+        source: 'node-0',
+        target: 'node-3',
+      },
+      {
+        source: 'node-3',
+        target: 'node-3-1',
+      },
+      {
+        source: 'node-3',
+        target: 'node-3-2',
+      },
+    ]
+  };
+  const treeData={
+    id: 'node-0',
+    label: 'node-0',
+    type: 'graphin-circle',
+    children:[{
+      id: 'node-1',
+      label: 'node-1',
+      type: 'graphin-circle',
+    },
+    {
+      id: 'node-2',
+      label: 'node-2',
+      type: 'graphin-circle',
+    },
+    {
+      id: 'node-3',
+      label: 'node-3',
+      type: 'graphin-circle',
+      
+    }]
+  }
   return (
     <RFLayout direction='column'>
       <RFPane style={{height: '80px', flex: 'none'}}>header</RFPane>
@@ -66,8 +227,8 @@ export function BasicLayout(props: any) {
           style={{position: 'absolute', left: 0, right: 0, top: 0, bottom: 0}}>
           <Scene title='g6'>
             <RG6GraphChart
-              type='g6'
-              data={[]}
+              type='Graph'
+              data={data}
               id='sdf'
               configs={G6Configs}></RG6GraphChart>
           </Scene>
@@ -86,10 +247,10 @@ export function BasicLayout(props: any) {
           <RFPane>
             <Scene title='g6'>
               <RG6GraphChart
-                type='g6'
-                data={[]}
+                type='TreeGraph'
+                data={data}
                 id='sdf'
-                configs={G6Configs}></RG6GraphChart>
+                configs={treeData}></RG6GraphChart>
             </Scene>
           </RFPane>
           <RFPane>

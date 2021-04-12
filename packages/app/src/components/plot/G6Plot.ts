@@ -7,7 +7,6 @@ import {
 } from '@antv/g2plot';
 import {Plot} from '@antv/g2plot';
 import EE from '@antv/event-emitter';
-import {bind} from 'size-sensor';
 import {PLOT_CONTAINER_OPTIONS} from '@antv/g2plot/lib/core/plot';
 import {
   getContainerSize,
@@ -15,7 +14,7 @@ import {
   pick,
   getAllElements
 } from '@antv/g2plot/lib/utils';
-import {Graph} from '@antv/g6';
+import {Graph, TreeGraph} from '@antv/g6';
 import {Adaptor} from './Graph/adaptor';
 
 const SOURCE_ATTRIBUTE_NAME = 'data-chart-source-type';
@@ -25,6 +24,7 @@ export type PickOptions = Pick<
   | 'width'
   | 'padding'
   | 'appendPadding'
+  | 'data'
   | 'renderer'
   | 'pixelRatio'
   | 'autoFit'
@@ -41,20 +41,6 @@ export abstract class G6Plot<O extends PickOptions> extends EE {
   static getDefaultOptions(): any {
     return {
       renderer: 'canvas',
-      xAxis: {
-        nice: true,
-        label: {
-          autoRotate: false,
-          autoHide: {type: 'equidistance', cfg: {minGap: 6}}
-        }
-      },
-      yAxis: {
-        nice: true,
-        label: {
-          autoHide: true,
-          autoRotate: false
-        }
-      },
       animation: true
     };
   }
@@ -91,6 +77,7 @@ export abstract class G6Plot<O extends PickOptions> extends EE {
     const {width, height} = this.options;
     this.chart = new Graph({
       container: this.container,
+
       ...this.getChartSize(width, height),
       ...pick(this.options, PLOT_CONTAINER_OPTIONS),
       ...this.options
@@ -142,10 +129,10 @@ export abstract class G6Plot<O extends PickOptions> extends EE {
     // 最好的解法是在 G2 view.clear 方法的时候，重置 options 配置。或者提供方法去 resetOptions
     // #1684 理论上在多 view 图形上，只要存在 custom legend，都存在类似问题（子弹图、双轴图）
     // @ts-ignore
-    this.chart.options = {
-      data: [],
-      animate: true
-    };
+    // this.chart.options = {
+    //   // data: [],
+    //   animate: true
+    // };
     //  this.chart.views = []; // 删除已有的 views
     // 执行 adaptor
     this.execAdaptor();

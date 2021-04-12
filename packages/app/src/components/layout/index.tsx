@@ -26,14 +26,22 @@ export function RFLayout(props: PLayout = DLayout) {
 export interface PPane {
   className?: string;
   children: ReactNode;
+  collaplse?: Boolean;
   style?: CSSProperties;
+  direction?: 'left' | 'right' | 'top' | 'bottom';
 }
 
 export function RFPane(props: PPane) {
+  function renderCollapse(props: PPane) {
+    if (props.collaplse) {
+      return <div className={['flex-layout', 'collapse'].join('-')}>&gt;</div>;
+    }
+  }
   return (
     <div
       className={['flex-pane', props.className].join(' ')}
       style={props.style}>
+      {renderCollapse(props)}
       {props.children}
     </div>
   );

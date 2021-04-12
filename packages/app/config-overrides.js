@@ -38,6 +38,7 @@ module.exports = {
       camel2DashComponentName: false,
       style: true
     })(config);
+    // console.log(config)
     customBabelLoaderInclude([path.resolve(__dirname, '..')])(config);
     addLessLoader({
       lessOptions: {

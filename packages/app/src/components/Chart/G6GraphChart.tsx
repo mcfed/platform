@@ -15,10 +15,10 @@ export const RG6GraphChart = React.forwardRef((props: PG6GraphChart) => {
   const {xAxis, yAxis, height, width, label, ...config} = props.configs;
   const chartType = props.configs.type || props.type;
   // console.log(props.data)
-  console.log(config);
   useLayoutEffect(function() {
     //@ts-ignore
-    new Template(eleRef.current, config).render();
+    new Template(eleRef.current, {...config, data: props.data}).render();
+    //TODO: 统一注册到G6Plot接入 adaptor 模式使用
     // new G6Plot(eleRef.current,config,adaptor,{}).render()
   });
 

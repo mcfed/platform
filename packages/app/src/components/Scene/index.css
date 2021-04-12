@@ -17,3 +17,8 @@
   flex-direction: column;
   overflow: auto;
 }
+
+.scene-body > div {
+  width: 100%;
+  height: 100%;
+}
